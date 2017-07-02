@@ -1,0 +1,756 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="ie 条件注释@if @else @end  1234567891011121314&amp;lt;!--[if IE]&amp;gt;&amp;lt;![endif]--&amp;gt;&amp;lt;!--[if lte IE 7]&amp;gt;&amp;lt;![endif]--&amp;gt;&amp;lt;!-- 条件注释 --&amp;gt; @_jscript //IE 中总是 true   /*@cc_on        @if(@_jscript) ale">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript权威指南 笔记">
+<meta property="og:url" content="http://lanria990.github.io/2016/07/27/2016-07-27-JavaScript 权威指南/index.html">
+<meta property="og:site_name" content="楠持的小铺">
+<meta property="og:description" content="ie 条件注释@if @else @end  1234567891011121314&amp;lt;!--[if IE]&amp;gt;&amp;lt;![endif]--&amp;gt;&amp;lt;!--[if lte IE 7]&amp;gt;&amp;lt;![endif]--&amp;gt;&amp;lt;!-- 条件注释 --&amp;gt; @_jscript //IE 中总是 true   /*@cc_on        @if(@_jscript) ale">
+<meta property="og:updated_time" content="2017-06-17T08:19:01.895Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript权威指南 笔记">
+<meta name="twitter:description" content="ie 条件注释@if @else @end  1234567891011121314&amp;lt;!--[if IE]&amp;gt;&amp;lt;![endif]--&amp;gt;&amp;lt;!--[if lte IE 7]&amp;gt;&amp;lt;![endif]--&amp;gt;&amp;lt;!-- 条件注释 --&amp;gt; @_jscript //IE 中总是 true   /*@cc_on        @if(@_jscript) ale">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://lanria990.github.io/2016/07/27/2016-07-27-JavaScript 权威指南/"/>
+
+
+
+
+
+  <title>javascript权威指南 笔记 | 楠持的小铺</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">楠持的小铺</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">做人不卖萌跟咸鱼有什么区别</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-demos">
+          <a href="https://lanria990.github.io/demos" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i>
+            
+            实验室
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2016/07/27/2016-07-27-JavaScript 权威指南/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨建兰">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/8067515?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="楠持的小铺">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                javascript权威指南 笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2016-07-27T00:00:00+08:00">
+                2016-07-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="ie-条件注释"><a href="#ie-条件注释" class="headerlink" title="ie 条件注释"></a>ie 条件注释</h4><p>@if @else @end </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;!--[<span class="keyword">if</span> IE]&gt;</div><div class="line">&lt;![endif]--&gt;</div><div class="line"></div><div class="line">&lt;!--[if lte IE 7]&gt;</div><div class="line"></div><div class="line">&lt;![endif]--&gt;</div><div class="line"></div><div class="line">&lt;!-- 条件注释 --&gt;</div><div class="line"></div><div class="line"> @_jscript //IE 中总是 true</div><div class="line">   /*@cc_on</div><div class="line">        @if(@_jscript) alert('@_jscript:'+@_jscript);</div><div class="line">    @end</div><div class="line">    @*/</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h4 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h4><p>协议、主机、url端口号</p>
+<p>跨域策略</p>
+<p>1、两个页面同时设置document.domain 为[顶级|相同]域名<br>2、调用 window postMessage<br>3、</p>
+<h4 id="安全策略-html5"><a href="#安全策略-html5" class="headerlink" title="安全策略 html5"></a>安全策略 html5</h4><p>html5内容安全，</p>
+<p>iframe sandbox</p>
+<p>“” 自动禁用脚本<br>allow-scripts 允许使用脚本，</p>
+<p>allow-same-origin 允许 iframe 内容被视为与包含文档有相同的来源</p>
+<p>allow-top-navigation    允许 iframe 内容从包含文档导航（加载）内容</p>
+<p>allow-forms    允许表单提交</p>
+<h4 id="window"><a href="#window" class="headerlink" title="window"></a>window</h4><p>setTimeout、clearTimeout,setInterval/clearInterval</p>
+<h3 id="客户端javascript"><a href="#客户端javascript" class="headerlink" title="客户端javascript"></a>客户端javascript</h3><h4 id="Node-nodeType"><a href="#Node-nodeType" class="headerlink" title="Node.nodeType"></a><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Node/nodeType" target="_blank" rel="external">Node.nodeType</a></h4><p>共有12个值，2/4/5/6/10/12已被弃用</p>
+<ul>
+<li>Node.ELEMENT_NODE    1    一个 元素 节点，例如 <p> 和 <div>。</div></p></li>
+<li>Node.TEXT_NODE    3    Element 或者 Attr 中实际的  文字</li>
+<li>Node.PROCESSING_INSTRUCTION_NODE    7    一个用于XML文档的 ProcessingInstruction ，例如 &lt;?xml-stylesheet … ?&gt; 声明。</li>
+<li>Node.COMMENT_NODE    8    一个 Comment 节点。</li>
+<li>Node.DOCUMENT_NODE    9    一个 Document 节点。</li>
+<li>Node.DOCUMENT_TYPE_NODE    10    描述文档类型的 DocumentType 节点。例如 &lt;!DOCTYPE html&gt;  就是用于 HTML5 的。</li>
+<li>Node.DOCUMENT_FRAGMENT_NODE    11    一个 DocumentFragment 节点</li>
+</ul>
+<h4 id="Node-insertAdjacentElement-Node-insertAdjacentText-Node-insertAdjacentHTML"><a href="#Node-insertAdjacentElement-Node-insertAdjacentText-Node-insertAdjacentHTML" class="headerlink" title="Node.insertAdjacentElement,Node.insertAdjacentText,Node.insertAdjacentHTML"></a>Node.insertAdjacentElement,Node.insertAdjacentText,Node.insertAdjacentHTML</h4><ul>
+<li><code>element.insertAdjacentElement(position, element);element.insertAdjacentText(position, text);element.insertAdjacentHTML(position, html);</code>element/text/html</li>
+<li>position: beforebegin/afterbegin /beforeend/ afterend</li>
+</ul>
+<h4 id="Node-textContent-与-Node-innerText"><a href="#Node-textContent-与-Node-innerText" class="headerlink" title="Node.textContent 与 Node.innerText"></a>Node.textContent 与 Node.innerText</h4><p>textContent</p>
+<ul>
+<li>ie9+</li>
+</ul>
+<ul>
+<li>textContent 会获取所有元素的内容，包括<script> 和 <style> 元素，然而 IE 专有属性 innerText 不会。</li>
+<li>innerText 会受样式影响，不返回隐藏元素文本，textContent会返回</li>
+<li>innerText 会触发CSS relow</li>
+<li>IE11 innerText 会移除所有子节点并销毁文本节点</li>
+</ul>
+<h4 id="Document-designMode-与-contenteditable"><a href="#Document-designMode-与-contenteditable" class="headerlink" title="Document.designMode 与 contenteditable"></a>Document.designMode 与 contenteditable</h4><p><code>document.designMode = &quot;on&quot;/&quot;off&quot;;</code>:全文档document可编辑/不可编辑，，增加div在body里面<br><code>contenteditable</code>: true/false;元素可编辑，</p>
+<p>document.designMode = ‘on’ 回车事件，div生效<br>不同的浏览器表现形式不一致。<br>chrome  在html中增加相同div元素<br>Firefox 在元素中增加<br><br>IE 未测</p>
+<p><code>contenteditable</code>: true 回车事件</p>
+<p>不同的浏览器表现形式不一致。<br>chrome  在元素中增加相同div元素<br>Firefox 在元素中增加<br><br>IE 未测</p>
+<h4 id="设置批量样式"><a href="#设置批量样式" class="headerlink" title="设置批量样式"></a>设置批量样式</h4><p><code>element.style.cssText</code>,<code>element.setAttribute(&#39;style&#39;,&#39;&#39;)</code>;</p>
+</script></li></ul>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/17/2016-07-17-http-refer/" rel="next" title="HTTP refer heading 笔记">
+                <i class="fa fa-chevron-left"></i> HTTP refer heading 笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/13/2016-08-13-version-number/" rel="prev" title="版本号">
+                版本号 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <a href="/">
+
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars3.githubusercontent.com/u/8067515?v=3&s=460"
+               alt="杨建兰" />
+              </a>
+
+          <p class="site-author-name" itemprop="name">杨建兰</p>
+           
+              <p class="site-description motion-element" itemprop="description">欢迎来到我的个人收藏铺~</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-name">文章</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+          
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#ie-条件注释"><span class="nav-number">1.</span> <span class="nav-text">ie 条件注释</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#同源策略"><span class="nav-number">2.</span> <span class="nav-text">同源策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安全策略-html5"><span class="nav-number">3.</span> <span class="nav-text">安全策略 html5</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#window"><span class="nav-number">4.</span> <span class="nav-text">window</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端javascript"><span class="nav-number"></span> <span class="nav-text">客户端javascript</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Node-nodeType"><span class="nav-number">1.</span> <span class="nav-text">Node.nodeType</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Node-insertAdjacentElement-Node-insertAdjacentText-Node-insertAdjacentHTML"><span class="nav-number">2.</span> <span class="nav-text">Node.insertAdjacentElement,Node.insertAdjacentText,Node.insertAdjacentHTML</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Node-textContent-与-Node-innerText"><span class="nav-number">3.</span> <span class="nav-text">Node.textContent 与 Node.innerText</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">杨建兰</span>
+</div>
+
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

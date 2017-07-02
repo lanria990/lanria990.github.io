@@ -1,0 +1,745 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="你不知道的前端新特性 PPT">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="你不知道的前端新特性 阅读笔记">
+<meta property="og:url" content="http://lanria990.github.io/2017/03/13/2017-03-13-javascript_trick/index.html">
+<meta property="og:site_name" content="楠持的小铺">
+<meta property="og:description" content="你不知道的前端新特性 PPT">
+<meta property="og:updated_time" content="2017-06-17T08:19:01.943Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="你不知道的前端新特性 阅读笔记">
+<meta name="twitter:description" content="你不知道的前端新特性 PPT">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://lanria990.github.io/2017/03/13/2017-03-13-javascript_trick/"/>
+
+
+
+
+
+  <title>你不知道的前端新特性 阅读笔记 | 楠持的小铺</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">楠持的小铺</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">做人不卖萌跟咸鱼有什么区别</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-demos">
+          <a href="https://lanria990.github.io/demos" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i>
+            
+            实验室
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2017/03/13/2017-03-13-javascript_trick/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨建兰">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/8067515?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="楠持的小铺">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                你不知道的前端新特性 阅读笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2017-03-13T00:00:00+08:00">
+                2017-03-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="你不知道的前端新特性-PPT"><a href="#你不知道的前端新特性-PPT" class="headerlink" title="你不知道的前端新特性 PPT"></a><a href="https://ppt.baomitu.com/d/84a42e3e" target="_blank" rel="external">你不知道的前端新特性 PPT</a></h4><a id="more"></a>
+<h4 id="URLSearchParams"><a href="#URLSearchParams" class="headerlink" title="URLSearchParams"></a><a href="https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams/URLSearchParams" target="_blank" rel="external">URLSearchParams</a></h4><p>eg.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> params = <span class="keyword">new</span> URLSearchParams(<span class="string">'src=so.com&amp;data=1&amp;data=2'</span>); <span class="comment">//'src=so.com&amp;data=1&amp;data=2'</span></div><div class="line"> params.get(<span class="string">'src'</span>);<span class="comment">//so.com</span></div><div class="line">params.has(<span class="string">'src'</span>); <span class="comment">//true</span></div><div class="line">params.get(<span class="string">'data'</span>); <span class="comment">//1</span></div><div class="line">params.getAll(<span class="string">'data'</span>); <span class="comment">// ["1", "2"]</span></div><div class="line">params.append(<span class="string">"q"</span>,<span class="string">"hello"</span>);<span class="comment">//undefined</span></div><div class="line">params.append(<span class="string">"data"</span>,<span class="string">"world"</span>);<span class="comment">//undefined</span></div><div class="line">params.delete(<span class="string">'src'</span>);<span class="comment">//undefined</span></div><div class="line">params.toString();<span class="comment">//data=1&amp;data=2&amp;q=hello&amp;data=world</span></div><div class="line">params.keys()<span class="comment">//[object Iterator]</span></div><div class="line">  </div><div class="line"><span class="keyword">for</span>(<span class="keyword">let</span> key <span class="keyword">of</span> params.keys()) &#123; </div><div class="line">  <span class="built_in">console</span>.log(key); <span class="comment">//data,data,q,data</span></div><div class="line">&#125;</div><div class="line"> params.entries()<span class="comment">//[object Iterator]</span></div><div class="line"><span class="keyword">for</span>(<span class="keyword">let</span> pair <span class="keyword">of</span> params.entries()) &#123;</div><div class="line">   <span class="built_in">console</span>.log(pair[<span class="number">0</span>]+ <span class="string">', '</span>+ pair[<span class="number">1</span>]); <span class="comment">//data, 1 data, 2 q, hello data, world</span></div><div class="line">&#125;</div><div class="line">params.values()<span class="comment">//[object Iterator]</span></div><div class="line"><span class="keyword">for</span>(<span class="keyword">let</span> value  <span class="keyword">of</span> params.values()) &#123;</div><div class="line">      <span class="built_in">console</span>.log(value ); <span class="comment">//1, 2, hello, world</span></div><div class="line">   &#125;</div><div class="line">params.set(<span class="string">'baz'</span>,<span class="number">2</span>)</div><div class="line">params.toString();<span class="comment">//data=1&amp;data=2&amp;q=hello&amp;data=world&amp;baz=2</span></div></pre></td></tr></table></figure>
+<ul>
+<li>兼容性</li>
+</ul>
+<iframe src="http://caniuse.com/#search=URLSearchParams" width="100%" height="300"></iframe>  
+
+
+
+<h4 id="URL"><a href="#URL" class="headerlink" title="URL"></a><a href="https://developer.mozilla.org/en-US/docs/Web/API/URL/URL" target="_blank" rel="external">URL</a></h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> url = <span class="keyword">new</span> URL(<span class="string">"https://example.org/💩?x=1"</span>);</div><div class="line">  url.pathname <span class="comment">// "/%F0%9F%92%A9"</span></div><div class="line">  url.host <span class="comment">// example.com</span></div><div class="line">  url.searchParams.get(<span class="string">'x'</span>) <span class="comment">// url.searchParams = new URLSearchParams('x=1')</span></div><div class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> key <span class="keyword">in</span> url)&#123;</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;key&#125;</span>,type:<span class="subst">$&#123;<span class="keyword">typeof</span> url[key]&#125;</span>,value:<span class="subst">$&#123;url[key]&#125;</span>`</span>);</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><h5 id="在用户关闭页面的时候打点"><a href="#在用户关闭页面的时候打点" class="headerlink" title="在用户关闭页面的时候打点"></a>在用户关闭页面的时候打点</h5><p><a href="">navigator.sendBeacon</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'unload'</span>, logData, <span class="literal">false</span>);</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">logData</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  navigator.sendBeacon(<span class="string">"/log"</span>, analyticsData);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="没有JS如何统计链接的点击"><a href="#没有JS如何统计链接的点击" class="headerlink" title="没有JS如何统计链接的点击"></a>没有JS如何统计链接的点击</h5><p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a" target="_blank" rel="external">a</a><br><a href="https://developers.google.com/webmasters/state-of-the-web/2005/element-a" target="_blank" rel="external">a element chrome</a></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"https://www.so.com"</span></span></div><div class="line">     <span class="attr">ping</span>=<span class="string">"https://s.360.cn/click"</span>&gt;360搜索<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>download 属性，rel 属性</p>
+</blockquote>
+<h5 id="怎样让一个元素在离开viewport时停在指定位置？"><a href="#怎样让一个元素在离开viewport时停在指定位置？" class="headerlink" title="怎样让一个元素在离开viewport时停在指定位置？"></a>怎样让一个元素在离开viewport时停在指定位置？</h5><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.sticky</span>&#123;</div><div class="line">  <span class="attribute">position</span>: -webkit-sticky;</div><div class="line">  <span class="attribute">position</span>: sticky;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>eg. 固定背景[Chrome 58+ 中查看]</p>
+<iframe src="https://jsfiddle.net/yangjl/hy67va0a/embedded/result,css,html/" width="100%" height="500" allowfullscreen="allowfullscreen" frameborder="0">&gt;</iframe>  
+
+
+<h5 id="清除浮动的方法"><a href="#清除浮动的方法" class="headerlink" title="清除浮动的方法"></a>清除浮动的方法</h5><p>CSS3 中，对块格式化上下文这个概念做了改动，将 “Block formatting context” 叫做 “flow root”<br>Chrome 58+ 兼容</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.fix</span>&#123;</div><div class="line">  <span class="attribute">display</span>: flow-root;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><a href="http://caniuse.com/#search=flow-root" target="_blank" rel="external">兼容性查询</a></p>
+<h5 id="字符串的前后位置添加字符串到指定位数"><a href="#字符串的前后位置添加字符串到指定位数" class="headerlink" title="字符串的前后位置添加字符串到指定位数"></a>字符串的前后位置添加字符串到指定位数</h5><ul>
+<li><a href="http://es6.ruanyifeng.com/#docs/string" target="_blank" rel="external">字符串的扩展</a></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">str.padStart(targetLength [, padString])</div><div class="line"><span class="string">'abc'</span>.padStart(<span class="number">10</span>);         <span class="comment">// "       abc"</span></div><div class="line"><span class="string">'abc'</span>.padStart(<span class="number">10</span>, <span class="string">"foo"</span>);  <span class="comment">// "foofoofabc"</span></div><div class="line"><span class="string">'abc'</span>.padStart(<span class="number">6</span>,<span class="string">"123465"</span>); <span class="comment">// "123abc" </span></div><div class="line"><span class="string">'abc'</span>.padEnd(<span class="number">8</span>, <span class="string">"0"</span>);     <span class="comment">// "abc00000"</span></div></pre></td></tr></table></figure>
+<h5 id="在浏览器中用JS分享内容到微信"><a href="#在浏览器中用JS分享内容到微信" class="headerlink" title="在浏览器中用JS分享内容到微信"></a>在浏览器中用JS分享内容到微信</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">navigator.share(&#123;</div><div class="line">      <span class="attr">title</span>: <span class="built_in">document</span>.title,</div><div class="line">      <span class="attr">text</span>:  <span class="string">"Hello World"</span>,</div><div class="line">      <span class="attr">url</span>: <span class="built_in">window</span>.location.href</div><div class="line">  &#125;).then(<span class="function"><span class="params">()</span>  =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'Successful share'</span>))</div><div class="line">  .catch(<span class="function"><span class="params">()</span>  =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'Error sharing:'</span>, error));</div></pre></td></tr></table></figure>
+<h5 id="懒加载-IntersectionObserver"><a href="#懒加载-IntersectionObserver" class="headerlink" title="懒加载 IntersectionObserver"></a>懒加载 <a href="./IntersectionObserver.md">IntersectionObserver</a></h5>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/01/2017-03-01-bfc/" rel="next" title="BFC 块极化格式上下文学习笔记">
+                <i class="fa fa-chevron-left"></i> BFC 块极化格式上下文学习笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/14/2017-03-14-IntersectionObserver/" rel="prev" title="IntersectionObserver API">
+                IntersectionObserver API <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <a href="/">
+
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars3.githubusercontent.com/u/8067515?v=3&s=460"
+               alt="杨建兰" />
+              </a>
+
+          <p class="site-author-name" itemprop="name">杨建兰</p>
+           
+              <p class="site-description motion-element" itemprop="description">欢迎来到我的个人收藏铺~</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-name">文章</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+          
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#你不知道的前端新特性-PPT"><span class="nav-number">1.</span> <span class="nav-text">你不知道的前端新特性 PPT</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#URLSearchParams"><span class="nav-number">2.</span> <span class="nav-text">URLSearchParams</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#URL"><span class="nav-number">3.</span> <span class="nav-text">URL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他"><span class="nav-number">4.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#在用户关闭页面的时候打点"><span class="nav-number">4.1.</span> <span class="nav-text">在用户关闭页面的时候打点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#没有JS如何统计链接的点击"><span class="nav-number">4.2.</span> <span class="nav-text">没有JS如何统计链接的点击</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#怎样让一个元素在离开viewport时停在指定位置？"><span class="nav-number">4.3.</span> <span class="nav-text">怎样让一个元素在离开viewport时停在指定位置？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#清除浮动的方法"><span class="nav-number">4.4.</span> <span class="nav-text">清除浮动的方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#字符串的前后位置添加字符串到指定位数"><span class="nav-number">4.5.</span> <span class="nav-text">字符串的前后位置添加字符串到指定位数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在浏览器中用JS分享内容到微信"><span class="nav-number">4.6.</span> <span class="nav-text">在浏览器中用JS分享内容到微信</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#懒加载-IntersectionObserver"><span class="nav-number">4.7.</span> <span class="nav-text">懒加载 IntersectionObserver</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">杨建兰</span>
+</div>
+
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

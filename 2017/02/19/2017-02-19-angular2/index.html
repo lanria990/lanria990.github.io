@@ -1,0 +1,770 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Angular2," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="Angular2核心概念 组件">
+<meta name="keywords" content="Angular2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Angular2 学习笔记">
+<meta property="og:url" content="http://lanria990.github.io/2017/02/19/2017-02-19-angular2/index.html">
+<meta property="og:site_name" content="楠持的小铺">
+<meta property="og:description" content="Angular2核心概念 组件">
+<meta property="og:updated_time" content="2017-06-17T08:19:01.934Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Angular2 学习笔记">
+<meta name="twitter:description" content="Angular2核心概念 组件">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://lanria990.github.io/2017/02/19/2017-02-19-angular2/"/>
+
+
+
+
+
+  <title>Angular2 学习笔记 | 楠持的小铺</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">楠持的小铺</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">做人不卖萌跟咸鱼有什么区别</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-demos">
+          <a href="https://lanria990.github.io/demos" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i>
+            
+            实验室
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2017/02/19/2017-02-19-angular2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨建兰">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/8067515?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="楠持的小铺">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Angular2 学习笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2017-02-19T00:00:00+08:00">
+                2017-02-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="Angular2"><a href="#Angular2" class="headerlink" title="Angular2"></a>Angular2</h4><p>核心概念</p>
+<p>组件</p>
+<a id="more"></a>
+<h4 id="ng2核心三个概念"><a href="#ng2核心三个概念" class="headerlink" title="ng2核心三个概念"></a>ng2核心三个概念</h4><p>1.组件<br>2.路由<br>3.</p>
+<p>采用单向数据流，抛弃了 $diget<br>祖建树引入不可变数据类型，<a href="https://github.com/compodoc/ngd" target="_blank" rel="external">组件树生成器</a></p>
+<p>3.<a href="https://angular.cn/docs/ts/latest/guide/ngmodule.html" target="_blank" rel="external">NgModule</a></p>
+<p>原因：优化，文化体积和请求数量需要考虑平衡</p>
+<ul>
+<li>打包</li>
+<li>动态加载</li>
+<li>declarations：<br>imports：导入文件<br>providers<br>bootstrap</li>
+</ul>
+<p>3.路由</p>
+<p>独立模块，独立演进。</p>
+<p>静态路由，<br>Component</p>
+<p>动态路由<br>loadChildren</p>
+<h4 id="DI-依赖注入"><a href="#DI-依赖注入" class="headerlink" title="DI 依赖注入"></a>DI 依赖注入</h4><ul>
+<li>每一个HTML标签上面都有一个注射器实力</li>
+<li>通过constructor</li>
+<li><p>@Injectable 是 @Compoment</p>
+</li>
+<li><p><a href="">工作原理</a></p>
+</li>
+</ul>
+<h4 id="DataBingd"><a href="#DataBingd" class="headerlink" title="DataBingd"></a>DataBingd</h4><p>资料</p>
+<h4 id="UI库"><a href="#UI库" class="headerlink" title="UI库"></a>UI库</h4><ul>
+<li><a href="https://material.angular.io/" target="_blank" rel="external">Angular Material</a></li>
+<li><a href="http://valor-software.com/ng2-bootstrap/" target="_blank" rel="external">ng2-bootstrap</a></li>
+<li><a href="http://www.primefaces.org/primeng/" target="_blank" rel="external">primeng</a></li>
+<li><a href="https://ionic.io/" target="_blank" rel="external">ionic</a></li>
+</ul>
+<h4 id="NiceFish"><a href="#NiceFish" class="headerlink" title="NiceFish"></a>NiceFish</h4><p>构建部署<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm build --prod</div></pre></td></tr></table></figure></p>
+<p>组件模块</p>
+<p>组件通讯： @input,@output,service[单例，同一个实例],路由</p>
+<h4 id="组件的生命周期钩子"><a href="#组件的生命周期钩子" class="headerlink" title="组件的生命周期钩子"></a><a href="https://angular.cn/docs/ts/latest/guide/lifecycle-hooks.html" target="_blank" rel="external">组件的生命周期钩子</a></h4><ol>
+<li>OnInit<br>2.AfterContentInit<br>3.AfterViewInit<br>4.OnChanges<br>5.DoCheck<br>6.AfterContentChecked<br>7.AfterViewChecked<br>8.OnDestroy</li>
+</ol>
+<p><a href="https://github.com/TeamStuQ/skill-map/blob/master/data/designbyStuQ/png-Angular2-by-StuQ.png" target="_blank" rel="external">脑图</a></p>
+<h4 id="工具-Angular-CLI-安装"><a href="#工具-Angular-CLI-安装" class="headerlink" title="工具 Angular-CLI  安装"></a>工具 Angular-CLI  安装</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cnpm install angular-cli -g</div><div class="line"></div><div class="line">ng help</div></pre></td></tr></table></figure>
+<h4 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">ng <span class="keyword">new</span> hello-world</div><div class="line"></div><div class="line">cnpm install</div><div class="line"></div><div class="line">ng serve <span class="comment">// default port 4200 启动服务 包比较大</span></div><div class="line">ng serve --prod --aot <span class="comment">// 最小化编译 z最新版本自动添加 --aot[预编译器]</span></div></pre></td></tr></table></figure>
+<h4 id="问题笔记"><a href="#问题笔记" class="headerlink" title="问题笔记"></a>问题笔记</h4><p>环境变量 win7.x64 nodejs:6.3.9</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ERROR in ./src/main.ts</div><div class="line">Module build failed: TypeError: Cannot read property &apos;newLine&apos; of undefined</div><div class="line"></div><div class="line">ERROR in ./src/polyfills.ts</div><div class="line">Module build failed: TypeError: Cannot read property &apos;newLine&apos; of undefined</div></pre></td></tr></table></figure>
+<p>解决办法：重新安装 ，angular-cli目前还不稳定处于beta版本[2017/02/18]<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cnpm install angular-cli</div><div class="line">cnpm install</div></pre></td></tr></table></figure></p>
+<ol>
+<li>@NgModule declarations 需要引用router中引用的模块</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Component ForgetPwdComponent is not part <span class="keyword">of</span> any NgModule or the <span class="built_in">module</span> has not been imported into your <span class="built_in">module</span>. ; Zone: <span class="xml"><span class="tag">&lt;<span class="name">root</span>&gt;</span> ; Task: Promise.then ; Value</span></div></pre></td></tr></table></figure>
+<ol>
+<li>mock-data 文件无法编译获取</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// angular-cli.json assets</span></div><div class="line">&#123;</div><div class="line">  <span class="string">"assets"</span>: [</div><div class="line">          <span class="string">"assets"</span>,</div><div class="line">          <span class="string">"favicon.ico"</span>,</div><div class="line">          <span class="string">"mock-data"</span></div><div class="line">  ]  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><a href="https://github.com/angular/angular-cli/blob/master/docs/documentation/stories/asset-configuration.md" target="_blank" rel="external"> angular-cli assets</a></p>
+<h4 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h4><ul>
+<li><a href="http://i.youku.com/i/UMzI1MjQ0MDgw?spm=a2h0j.8191423.subscription_wrap.DT~A" target="_blank" rel="external">真的大漠穷秋-Angular2 视频</a></li>
+<li><a href="https://my.oschina.net/mumu/home" target="_blank" rel="external">大漠穷秋博客</a></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Angular2/" rel="tag"># Angular2</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/13/2017-02-11-margin/" rel="next" title="margin 学习笔记">
+                <i class="fa fa-chevron-left"></i> margin 学习笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/20/2017-02-20-prime-number/" rel="prev" title="“蝉原则”与CSS3随机多背景随机圆角 阅读笔记">
+                “蝉原则”与CSS3随机多背景随机圆角 阅读笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <a href="/">
+
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars3.githubusercontent.com/u/8067515?v=3&s=460"
+               alt="杨建兰" />
+              </a>
+
+          <p class="site-author-name" itemprop="name">杨建兰</p>
+           
+              <p class="site-description motion-element" itemprop="description">欢迎来到我的个人收藏铺~</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-name">文章</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+          
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Angular2"><span class="nav-number">1.</span> <span class="nav-text">Angular2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ng2核心三个概念"><span class="nav-number">2.</span> <span class="nav-text">ng2核心三个概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DI-依赖注入"><span class="nav-number">3.</span> <span class="nav-text">DI 依赖注入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DataBingd"><span class="nav-number">4.</span> <span class="nav-text">DataBingd</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UI库"><span class="nav-number">5.</span> <span class="nav-text">UI库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NiceFish"><span class="nav-number">6.</span> <span class="nav-text">NiceFish</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组件的生命周期钩子"><span class="nav-number">7.</span> <span class="nav-text">组件的生命周期钩子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#工具-Angular-CLI-安装"><span class="nav-number">8.</span> <span class="nav-text">工具 Angular-CLI  安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#新建项目"><span class="nav-number">9.</span> <span class="nav-text">新建项目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#问题笔记"><span class="nav-number">10.</span> <span class="nav-text">问题笔记</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#资料"><span class="nav-number">11.</span> <span class="nav-text">资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">杨建兰</span>
+</div>
+
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

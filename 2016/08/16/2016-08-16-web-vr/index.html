@@ -1,0 +1,740 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="web-vr," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="原文 HMD 种类 滑配式  这是目前最初级、价格最低的 HMD 设备。它与智能手机相连接，将 2D 显示变成 3D VR 显示。滑配式 HMD 设备强烈依赖于主机系统(智能手机)，后者是提供 VR 效果的必备部分。 厂商：滑配式HMD设备包括谷歌 Carboard 和三星 Gear VR。  分离式  分离式 HMD 设备较滑配式 HMD 设备复杂，内置多种电子零部件。两者的主要不同是，分离式">
+<meta name="keywords" content="web-vr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WebVR">
+<meta property="og:url" content="http://lanria990.github.io/2016/08/16/2016-08-16-web-vr/index.html">
+<meta property="og:site_name" content="楠持的小铺">
+<meta property="og:description" content="原文 HMD 种类 滑配式  这是目前最初级、价格最低的 HMD 设备。它与智能手机相连接，将 2D 显示变成 3D VR 显示。滑配式 HMD 设备强烈依赖于主机系统(智能手机)，后者是提供 VR 效果的必备部分。 厂商：滑配式HMD设备包括谷歌 Carboard 和三星 Gear VR。  分离式  分离式 HMD 设备较滑配式 HMD 设备复杂，内置多种电子零部件。两者的主要不同是，分离式">
+<meta property="og:updated_time" content="2017-06-17T08:19:01.907Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="WebVR">
+<meta name="twitter:description" content="原文 HMD 种类 滑配式  这是目前最初级、价格最低的 HMD 设备。它与智能手机相连接，将 2D 显示变成 3D VR 显示。滑配式 HMD 设备强烈依赖于主机系统(智能手机)，后者是提供 VR 效果的必备部分。 厂商：滑配式HMD设备包括谷歌 Carboard 和三星 Gear VR。  分离式  分离式 HMD 设备较滑配式 HMD 设备复杂，内置多种电子零部件。两者的主要不同是，分离式">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://lanria990.github.io/2016/08/16/2016-08-16-web-vr/"/>
+
+
+
+
+
+  <title>WebVR | 楠持的小铺</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">楠持的小铺</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">做人不卖萌跟咸鱼有什么区别</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-demos">
+          <a href="https://lanria990.github.io/demos" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i>
+            
+            实验室
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2016/08/16/2016-08-16-web-vr/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨建兰">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/8067515?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="楠持的小铺">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                WebVR
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2016-08-16T00:00:00+08:00">
+                2016-08-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><a href="https://aotu.io/notes/2016/08/24/2016-8-24-webvr/" target="_blank" rel="external">原文</a></p>
+<h4 id="HMD-种类"><a href="#HMD-种类" class="headerlink" title="HMD 种类"></a>HMD 种类</h4><ul>
+<li>滑配式</li>
+</ul>
+<p>这是目前最初级、价格最低的 HMD 设备。它与智能手机相连接，将 2D 显示变成 3D VR 显示。滑配式 HMD 设备强烈依赖于主机系统(智能手机)，后者是提供 VR 效果的必备部分。</p>
+<p>厂商：滑配式HMD设备包括谷歌 Carboard 和三星 Gear VR。</p>
+<ul>
+<li>分离式</li>
+</ul>
+<p>分离式 HMD 设备较滑配式 HMD 设备复杂，内置多种电子零部件。两者的主要不同是，分离式 HMD 设备拥有自己的显示屏，也可能配备自己的处理器(提供简单计算能力)。虽然分离式 HMD 设备不能独立于主机系统而工作，但却为VR市场创造了新的机会，因为主机系统已不再局限于智能手机，PC 和视频游戏机也能用于提供VR体验。总之，分离式 HMD 设备能提供高质量的 VR 体验。</p>
+<p>厂商：分离式 HMD 设备包括 Facebook Oculus Rift、HTC Vive 和 PlayStation VR。</p>
+<ul>
+<li>整合式</li>
+</ul>
+<p>整合式 HMD 设备拥有强大的计算能力和追踪系统。作为一款独立的计算设备，整合式 HMD 设备将配备一整套零部件，价格甚至高于普通 PC。</p>
+<p>厂商：微软 HoloLens</p>
+<a id="more"></a>
+<h4 id="WebVR-开发"><a href="#WebVR-开发" class="headerlink" title="WebVR 开发"></a>WebVR 开发</h4><ul>
+<li><p>JavaScript, Three.js 与 监听设备方向（Device Orientation）</p>
+</li>
+<li><p>JavaScript, Three.js 与 WebVR</p>
+</li>
+<li><p>CSS 与 WebVR（仍处于非常早期阶段）</p>
+</li>
+</ul>
+<h4 id="现有框架"><a href="#现有框架" class="headerlink" title="现有框架"></a>现有框架</h4><p><a href="https://aframe.io/" target="_blank" rel="external">A-Frame</a>、<a href="https://github.com/mrdoob/three.js" target="_blank" rel="external">Three.js</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/web-vr/" rel="tag"># web-vr</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/15/2016-08-15-node-log4js/" rel="next" title="Node.js 之 log4js">
+                <i class="fa fa-chevron-left"></i> Node.js 之 log4js
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/16/2016-08-16-web-animate/" rel="prev" title="web 动画">
+                web 动画 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <a href="/">
+
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars3.githubusercontent.com/u/8067515?v=3&s=460"
+               alt="杨建兰" />
+              </a>
+
+          <p class="site-author-name" itemprop="name">杨建兰</p>
+           
+              <p class="site-description motion-element" itemprop="description">欢迎来到我的个人收藏铺~</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-name">文章</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+          
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#HMD-种类"><span class="nav-number">1.</span> <span class="nav-text">HMD 种类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#WebVR-开发"><span class="nav-number">2.</span> <span class="nav-text">WebVR 开发</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#现有框架"><span class="nav-number">3.</span> <span class="nav-text">现有框架</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">杨建兰</span>
+</div>
+
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
