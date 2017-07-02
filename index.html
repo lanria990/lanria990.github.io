@@ -112,7 +112,7 @@
     motion: true,
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: 'yangjl'
     },
     algolia: {
       applicationID: '',
@@ -220,7 +220,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i>
             
-            标签
+            分类
           </a>
         </li>
       
@@ -273,6 +273,137 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2017/06/30/2017-06-30-vue_render/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨建兰">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/8067515?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="楠持的小铺">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/06/30/2017-06-30-vue_render/" itemprop="url">
+                  vue render
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-30T00:00:00+08:00">
+                2017-06-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>问题：需要实现一个动态的表单配置,Model配置如下.条件时间比较赶，原有项目利用了elm ui 组件库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">const config= &#123;</div><div class="line">    items: [</div><div class="line">      &#123;</div><div class="line">        componentName: &apos;app-select&apos;,</div><div class="line">        type: &apos;select&apos;,</div><div class="line">        key: &apos;test&apos;,</div><div class="line">        value: &apos;1&apos;,</div><div class="line">        options: [&#123;</div><div class="line">          value: &apos;1&apos;,</div><div class="line">          label: &apos;公司新闻&apos;</div><div class="line">        &#125;, &#123;</div><div class="line">          value: &apos;2&apos;,</div><div class="line">          label: &apos;新闻列表&apos;</div><div class="line">        &#125;]</div><div class="line">      &#125;,</div><div class="line">      &#123;</div><div class="line">        componentName: &apos;el-input&apos;,</div><div class="line">        type: &apos;text&apos;,</div><div class="line">        key: &apos;test_string&apos;,</div><div class="line">        placeholder: &apos;test_string&apos;</div><div class="line">      &#125;,</div><div class="line">      &#123;</div><div class="line">        componentName: &apos;el-input-number&apos;,</div><div class="line">        max: 100,</div><div class="line">        min: 0,</div><div class="line">        value: &apos;5&apos;,</div><div class="line">        key: &apos;test_int&apos;,</div><div class="line">        placeholder: &apos;test_int&apos;</div><div class="line">      &#125;]</div><div class="line">&#125;</div><div class="line">cont formData = initFormData(config) //&#123;text_string:&apos;&apos;...&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="render-函数"><a href="#render-函数" class="headerlink" title="render 函数"></a>render 函数</h2><ol>
+<li>API地址<a href="https://cn.vuejs.org/v2/guide/render-function.html#main" target="_blank" rel="external">Render 函数</a></li>
+</ol>
+<p>参数：<br> createElement:(componentName,options,ArrayChild)<br> context:{props}</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">Vue.component(&#123;</div><div class="line">    <span class="attr">methods</span>:&#123;&#125;,</div><div class="line">    render(h,ctx)&#123;</div><div class="line">        h(<span class="string">'test-form'</span>,&#123;</div><div class="line">            <span class="attr">props</span>:&#123;&#125;</div><div class="line">        &#125;,)</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>函数组件化<br>functional: true</p>
+<h2 id="jsx"><a href="#jsx" class="headerlink" title="jsx"></a>jsx</h2><p>render组件比较多的情况下使用jsx比较合适</p>
+<p>package.json</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">npm install\</div><div class="line">  babel-plugin-syntax-jsx\</div><div class="line">  babel-plugin-transform-vue-jsx\</div><div class="line">  babel-helper-vue-jsx-merge-props\</div><div class="line">  babel-preset-es2015\</div><div class="line">  --save-dev</div></pre></td></tr></table></figure>
+<p>eslint 配置<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="string">"parserOptions"</span>: &#123;</div><div class="line">  <span class="string">"ecmaFeatures"</span>: &#123;</div><div class="line">    <span class="string">"experimentalObjectRestSpread"</span>: <span class="literal">true</span>,</div><div class="line">    <span class="string">"jsx"</span>: <span class="literal">true</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"> Vue.component(&#123;</div><div class="line">    <span class="attr">methods</span>:&#123;&#125;,</div><div class="line">    render(h,ctx)&#123;</div><div class="line">        <span class="keyword">const</span> props = &#123;</div><div class="line">            <span class="attr">props</span>:&#123;&#125;,</div><div class="line">            <span class="attr">on</span>:&#123;</div><div class="line">                <span class="attr">input</span>:<span class="function"><span class="params">val</span>=&gt;</span>&#123;</div><div class="line">                    result = val</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125; </div><div class="line">       <span class="keyword">return</span> (</div><div class="line">        <span class="xml"><span class="tag">&lt;<span class="name">app-form</span> <span class="attr">...props</span>&gt;</span></span></div><div class="line">       //...</div><div class="line">       <span class="tag">&lt;/<span class="name">app-form</span>&gt;</span></div><div class="line">       )</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2017/06/30/2017-06-30-vue 渲染/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -310,9 +441,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2017-06-30T00:00:00+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-30T00:00:00+08:00">
                 2017-06-30
               </time>
             
@@ -348,46 +479,31 @@
 
       
         
-          
-            <h2 id="vue-渲染问题"><a href="#vue-渲染问题" class="headerlink" title="vue 渲染问题"></a>vue 渲染问题</h2><p><img src="https://cn.vuejs.org/images/data.png" alt="image"></p>
+          <h1 id="vue-渲染问题"><a href="#vue-渲染问题" class="headerlink" title="vue 渲染问题"></a>vue 渲染问题</h1><p><img src="https://cn.vuejs.org/images/data.png" alt="image"></p>
 <blockquote>
 <p>数据变化触发render函数</p>
 </blockquote>
-<h4 id="vue相关API"><a href="#vue相关API" class="headerlink" title="vue相关API"></a>vue相关API</h4><ul>
+<h2 id="vue相关API"><a href="#vue相关API" class="headerlink" title="vue相关API"></a>vue相关API</h2><ul>
 <li><a href="https://cn.vuejs.org/v2/guide/reactivity.html#声明响应式属性" target="_blank" rel="external">声明响应式属性</a></li>
 <li><a href="https://cn.vuejs.org/v2/guide/list.html" target="_blank" rel="external">列表渲染</a></li>
 </ul>
-<h4 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h4><p>Array 列表渲染</p>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>Array 列表渲染</p>
 <hr>
 <ol>
 <li>添加和删除</li>
 </ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">list.push()</div><div class="line">list.pop() </div><div class="line">list.splice(<span class="number">0</span>) <span class="comment">// 需要数组长度</span></div><div class="line">list.splice(index,<span class="number">1</span>) <span class="comment">//删除</span></div><div class="line">list.splice(index,<span class="number">1</span>,newValue) <span class="comment">// 替换</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">list.push()</div><div class="line">list.pop() </div><div class="line">list.splice(<span class="number">0</span>) <span class="comment">// 需要数组长度</span></div><div class="line">list.splice(index,<span class="number">1</span>) <span class="comment">//删除</span></div><div class="line">list.splice(index,<span class="number">1</span>,newValue) <span class="comment">// 替换</span></div></pre></td></tr></table></figure>
 <ol>
 <li>清空或者重置</li>
 </ol>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">list.splice(<span class="number">0</span>) <span class="comment">// 清空</span></div><div class="line"></div><div class="line"><span class="keyword">this</span>.$set(<span class="keyword">this</span>,<span class="string">'list'</span>,[])</div></pre></td></tr></table></figure>
-<ol>
-<li></li>
-</ol>
-<p>Object 数据渲染</p>
-<hr>
-<p>1.添加属性</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.$set(<span class="keyword">this</span>,<span class="string">'dataMap'</span>,&#123;&#125;) <span class="comment">//清空</span></div><div class="line"><span class="keyword">this</span>.$set(<span class="keyword">this</span>.dataMap,<span class="string">'key'</span>,value) <span class="comment">//添加或者修改单个属性值 </span></div><div class="line"><span class="keyword">this</span>.dataMap = <span class="built_in">Object</span>.assign(&#123;&#125;,<span class="keyword">this</span>.dataMap, result) <span class="comment">// 继承数据</span></div><div class="line"></div><div class="line"><span class="keyword">this</span>.$set(<span class="keyword">this</span>,<span class="string">'dataMap'</span>,&#123;&#125;)</div><div class="line"><span class="keyword">this</span>.dataMap = <span class="built_in">Object</span>.assign(&#123;&#125;,<span class="keyword">this</span>.dataMap, result) <span class="comment">//重置数据</span></div></pre></td></tr></table></figure>
-<h4 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h4><p>1.<code>max stack size exceeded</code></p>
-<ul>
-<li><code>Object.assign</code> 会拷贝Object原型链上的所有方法，使用浅拷贝数据<code>JSON.parse(JSON.string())</code></li>
-<li>先使用$set置空，在使用 <code>Object.assign</code></li>
-<li>render中使用computed计算属性设置<code>resultMap</code>子组件中的数据也会导致该问题，采用$set置空，在使用 <code>Object.assign</code> 解决</li>
-</ul>
-<ol>
-<li><code>dataMap={key:undefined}</code> render 中遇到父组件更新数据时无法保存</li>
-</ol>
-<ul>
-<li>原因Object中的key的value值设为了undefined</li>
-</ul>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/30/2017-06-30-vue 渲染/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -466,9 +582,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2017-06-17T16:19:01+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-17T16:19:01+08:00">
                 2017-06-17
               </time>
             
@@ -516,7 +632,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/06/17/2017-02-14-nextgen-web-pwa/#more" rel="contents">
-              阅读全文 &raquo;
+              Read more &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -598,9 +714,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2017-04-08T00:00:00+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-08T00:00:00+08:00">
                 2017-04-08
               </time>
             
@@ -640,7 +756,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/04/08/2017-04-08-JSON/#more" rel="contents">
-              阅读全文 &raquo;
+              Read more &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -722,9 +838,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2017-03-22T00:00:00+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-22T00:00:00+08:00">
                 2017-03-22
               </time>
             
@@ -784,7 +900,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/03/22/2017-03-22-vertical-align/#more" rel="contents">
-              阅读全文 &raquo;
+              Read more &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -866,9 +982,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2017-03-21T00:00:00+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-21T00:00:00+08:00">
                 2017-03-21
               </time>
             
@@ -910,7 +1026,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/03/21/2017-03-21-reduce_transduce/#more" rel="contents">
-              阅读全文 &raquo;
+              Read more &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -992,9 +1108,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2017-03-20T00:00:00+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-20T00:00:00+08:00">
                 2017-03-20
               </time>
             
@@ -1034,7 +1150,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/03/20/2017-03-20-relative/#more" rel="contents">
-              阅读全文 &raquo;
+              Read more &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -1116,9 +1232,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2017-03-20T00:00:00+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-20T00:00:00+08:00">
                 2017-03-20
               </time>
             
@@ -1264,9 +1380,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2017-03-20T00:00:00+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-20T00:00:00+08:00">
                 2017-03-20
               </time>
             
@@ -1310,7 +1426,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/03/20/2017-03-20-pointfree/#more" rel="contents">
-              阅读全文 &raquo;
+              Read more &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -1392,9 +1508,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2017-03-16T00:00:00+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-16T00:00:00+08:00">
                 2017-03-16
               </time>
             
@@ -1441,132 +1557,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/03/16/2017-03-20-seo-design-url/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2017/03/14/2017-03-14-IntersectionObserver/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="杨建兰">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/8067515?v=3&s=460">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="楠持的小铺">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/14/2017-03-14-IntersectionObserver/" itemprop="url">
-                  IntersectionObserver API
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2017-03-14T00:00:00+08:00">
-                2017-03-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><a href="https://developers.google.com/web/updates/2016/04/intersectionobserver" target="_blank" rel="external">IntersectionObserver API</a><br>可以自动”观察”元素是否可见，Chrome 51+ 已经支持。由于可见（visible）的本质是，目标元素与视口产生一个交叉区，所以这个 API 叫做”交叉观察器”</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> io = <span class="keyword">new</span> IntersectionObserver(callback, option)</div><div class="line">io.observe(element);  <span class="comment">// 开始观察</span></div><div class="line">  io.unobserve(element);  <span class="comment">// 停止观察</span></div><div class="line">  io.disconnect();  <span class="comment">// 关闭观察器</span></div></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/14/2017-03-14-IntersectionObserver/#more" rel="contents">
-              阅读全文 &raquo;
+              Read more &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -1654,8 +1645,8 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">37</span>
-                <span class="site-state-item-name">文章</span>
+                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-name">posts</span>
               </a>
             </div>
           
@@ -1668,7 +1659,7 @@
             <div class="site-state-item site-state-tags">
               
                 <span class="site-state-item-count">13</span>
-                <span class="site-state-item-name">标签</span>
+                <span class="site-state-item-name">tags</span>
               
             </div>
           
@@ -1719,7 +1710,7 @@
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">

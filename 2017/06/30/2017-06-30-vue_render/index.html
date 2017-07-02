@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="CSS3," />
+  <meta name="keywords" content="JavaScript,vue," />
 
 
 
@@ -90,17 +90,17 @@
 
 
 
-<meta name="description" content="Block fomatting context (简称BFC) Box盒子定义Box: 盒子，布局的基本单位。display ，决定盒子的类型  block-level box:display 属性为 block, list-item, table 的元素，会生成 block-level box。并且参与 block fomatting context； inline-level box:disp">
-<meta name="keywords" content="CSS3">
+<meta name="description" content="问题问题：需要实现一个动态的表单配置,Model配置如下.条件时间比较赶，原有项目利用了elm ui 组件库12345678910111213141516171819202122232425262728293031const config= &amp;#123;    items: [      &amp;#123;        componentName: &amp;apos;app-select&amp;apos;,">
+<meta name="keywords" content="JavaScript,vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="BFC 块极化格式上下文学习笔记">
-<meta property="og:url" content="http://lanria990.github.io/2017/03/01/2017-03-01-bfc/index.html">
+<meta property="og:title" content="vue render">
+<meta property="og:url" content="http://lanria990.github.io/2017/06/30/2017-06-30-vue_render/index.html">
 <meta property="og:site_name" content="楠持的小铺">
-<meta property="og:description" content="Block fomatting context (简称BFC) Box盒子定义Box: 盒子，布局的基本单位。display ，决定盒子的类型  block-level box:display 属性为 block, list-item, table 的元素，会生成 block-level box。并且参与 block fomatting context； inline-level box:disp">
-<meta property="og:updated_time" content="2017-06-17T08:19:01.941Z">
+<meta property="og:description" content="问题问题：需要实现一个动态的表单配置,Model配置如下.条件时间比较赶，原有项目利用了elm ui 组件库12345678910111213141516171819202122232425262728293031const config= &amp;#123;    items: [      &amp;#123;        componentName: &amp;apos;app-select&amp;apos;,">
+<meta property="og:updated_time" content="2017-07-01T08:20:51.422Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="BFC 块极化格式上下文学习笔记">
-<meta name="twitter:description" content="Block fomatting context (简称BFC) Box盒子定义Box: 盒子，布局的基本单位。display ，决定盒子的类型  block-level box:display 属性为 block, list-item, table 的元素，会生成 block-level box。并且参与 block fomatting context； inline-level box:disp">
+<meta name="twitter:title" content="vue render">
+<meta name="twitter:description" content="问题问题：需要实现一个动态的表单配置,Model配置如下.条件时间比较赶，原有项目利用了elm ui 组件库12345678910111213141516171819202122232425262728293031const config= &amp;#123;    items: [      &amp;#123;        componentName: &amp;apos;app-select&amp;apos;,">
 
 
 
@@ -128,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://lanria990.github.io/2017/03/01/2017-03-01-bfc/"/>
+  <link rel="canonical" href="http://lanria990.github.io/2017/06/30/2017-06-30-vue_render/"/>
 
 
 
 
 
-  <title>BFC 块极化格式上下文学习笔记 | 楠持的小铺</title>
+  <title>vue render | 楠持的小铺</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="">
@@ -273,7 +273,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2017/03/01/2017-03-01-bfc/">
+    <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2017/06/30/2017-06-30-vue_render/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="杨建兰">
@@ -294,7 +294,7 @@
             
             
               
-                BFC 块极化格式上下文学习笔记
+                vue render
               
             
           </h1>
@@ -309,8 +309,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-01T00:00:00+08:00">
-                2017-03-01
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-30T00:00:00+08:00">
+                2017-06-30
               </time>
             
 
@@ -344,33 +344,18 @@
       
 
       
-        <p>Block fomatting context (简称BFC)</p>
-<h4 id="Box盒子定义"><a href="#Box盒子定义" class="headerlink" title="Box盒子定义"></a>Box盒子定义</h4><p>Box: 盒子，布局的基本单位。display ，决定盒子的类型</p>
-<ul>
-<li>block-level box:display 属性为 block, list-item, table 的元素，会生成 block-level box。并且参与 block fomatting context；</li>
-<li>inline-level box:display 属性为 inline, inline-block, inline-table 的元素，会生成 inline-level box。并且参与 inline formatting context</li>
-<li>run-in box:CSS3</li>
-</ul>
-<a id="more"></a>
-<h4 id="布局规则："><a href="#布局规则：" class="headerlink" title="布局规则："></a>布局规则：</h4><ul>
-<li>内部的Box会在垂直方向，一个接一个地放置。【垂直方向发生重叠】</li>
-<li>Box垂直方向的距离由margin决定。属于同一个BFC（兄弟的元素BFC中相当于同一个BFC）的两个相邻Box的margin会发生重叠</li>
-<li>每个元素的margin box的左边， 与包含块border box的左边相接触(对于从左往右的格式化，否则相反)。即使存在浮动也是如此。</li>
-<li>BFC的区域不会与float box重叠。</li>
-<li>BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此。</li>
-<li>计算BFC的高度时，浮动元素也参与计算</li>
-</ul>
-<h4 id="BFC-生成条件"><a href="#BFC-生成条件" class="headerlink" title="BFC 生成条件"></a>BFC 生成条件</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line"><span class="attribute">display</span>:inline-block; <span class="comment">/*inline-block/table-cell/table-caption/flex /inline-flex/flow-root*/</span></div><div class="line"> <span class="attribute">position</span>:absolute;  <span class="comment">/*absolute/fixed/sticky*/</span></div><div class="line"> <span class="attribute">overflow</span>:hidden;<span class="comment">/*scroll/hidden*/</span></div><div class="line"> <span class="attribute">float</span>:left;<span class="comment">/*right/left*/</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="使用场景和案例"><a href="#使用场景和案例" class="headerlink" title="使用场景和案例"></a>使用场景和案例</h4><p>作用：避免margin穿透，清除浮动，阻止文本换行等<br>原理：</p>
-<iframe src="//jsfiddle.net/yangjl/meaqqdrL/2/embedded/html,css,result/" frameborder="0" width="100%" height="500"></iframe> 
-
-
-<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><ul>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context" target="_blank" rel="external">块极化格式上下文</a></li>
-<li><a href="http://div.io/topic/834" target="_blank" rel="external">什么是BFC</a></li>
-<li><a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html" target="_blank" rel="external">BFC 神奇背后的原理</a></li>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Introduction_to_CSS/Box_model" target="_blank" rel="external">The box model</a></li>
-</ul>
+        <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>问题：需要实现一个动态的表单配置,Model配置如下.条件时间比较赶，原有项目利用了elm ui 组件库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">const config= &#123;</div><div class="line">    items: [</div><div class="line">      &#123;</div><div class="line">        componentName: &apos;app-select&apos;,</div><div class="line">        type: &apos;select&apos;,</div><div class="line">        key: &apos;test&apos;,</div><div class="line">        value: &apos;1&apos;,</div><div class="line">        options: [&#123;</div><div class="line">          value: &apos;1&apos;,</div><div class="line">          label: &apos;公司新闻&apos;</div><div class="line">        &#125;, &#123;</div><div class="line">          value: &apos;2&apos;,</div><div class="line">          label: &apos;新闻列表&apos;</div><div class="line">        &#125;]</div><div class="line">      &#125;,</div><div class="line">      &#123;</div><div class="line">        componentName: &apos;el-input&apos;,</div><div class="line">        type: &apos;text&apos;,</div><div class="line">        key: &apos;test_string&apos;,</div><div class="line">        placeholder: &apos;test_string&apos;</div><div class="line">      &#125;,</div><div class="line">      &#123;</div><div class="line">        componentName: &apos;el-input-number&apos;,</div><div class="line">        max: 100,</div><div class="line">        min: 0,</div><div class="line">        value: &apos;5&apos;,</div><div class="line">        key: &apos;test_int&apos;,</div><div class="line">        placeholder: &apos;test_int&apos;</div><div class="line">      &#125;]</div><div class="line">&#125;</div><div class="line">cont formData = initFormData(config) //&#123;text_string:&apos;&apos;...&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="render-函数"><a href="#render-函数" class="headerlink" title="render 函数"></a>render 函数</h2><ol>
+<li>API地址<a href="https://cn.vuejs.org/v2/guide/render-function.html#main" target="_blank" rel="external">Render 函数</a></li>
+</ol>
+<p>参数：<br> createElement:(componentName,options,ArrayChild)<br> context:{props}</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">Vue.component(&#123;</div><div class="line">    <span class="attr">methods</span>:&#123;&#125;,</div><div class="line">    render(h,ctx)&#123;</div><div class="line">        h(<span class="string">'test-form'</span>,&#123;</div><div class="line">            <span class="attr">props</span>:&#123;&#125;</div><div class="line">        &#125;,)</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>函数组件化<br>functional: true</p>
+<h2 id="jsx"><a href="#jsx" class="headerlink" title="jsx"></a>jsx</h2><p>render组件比较多的情况下使用jsx比较合适</p>
+<p>package.json</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">npm install\</div><div class="line">  babel-plugin-syntax-jsx\</div><div class="line">  babel-plugin-transform-vue-jsx\</div><div class="line">  babel-helper-vue-jsx-merge-props\</div><div class="line">  babel-preset-es2015\</div><div class="line">  --save-dev</div></pre></td></tr></table></figure>
+<p>eslint 配置<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="string">"parserOptions"</span>: &#123;</div><div class="line">  <span class="string">"ecmaFeatures"</span>: &#123;</div><div class="line">    <span class="string">"experimentalObjectRestSpread"</span>: <span class="literal">true</span>,</div><div class="line">    <span class="string">"jsx"</span>: <span class="literal">true</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"> Vue.component(&#123;</div><div class="line">    <span class="attr">methods</span>:&#123;&#125;,</div><div class="line">    render(h,ctx)&#123;</div><div class="line">        <span class="keyword">const</span> props = &#123;</div><div class="line">            <span class="attr">props</span>:&#123;&#125;,</div><div class="line">            <span class="attr">on</span>:&#123;</div><div class="line">                <span class="attr">input</span>:<span class="function"><span class="params">val</span>=&gt;</span>&#123;</div><div class="line">                    result = val</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125; </div><div class="line">       <span class="keyword">return</span> (</div><div class="line">        <span class="xml"><span class="tag">&lt;<span class="name">app-form</span> <span class="attr">...props</span>&gt;</span></span></div><div class="line">       //...</div><div class="line">       <span class="tag">&lt;/<span class="name">app-form</span>&gt;</span></div><div class="line">       )</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -400,7 +385,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/CSS3/" rel="tag"># CSS3</a>
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/vue/" rel="tag"># vue</a>
           
         </div>
       
@@ -413,8 +400,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/01/bugs/" rel="next" title="Bug 收集分析">
-                <i class="fa fa-chevron-left"></i> Bug 收集分析
+              <a href="/2017/06/30/2017-06-30-vue 渲染/" rel="next" title="vue 渲染问题">
+                <i class="fa fa-chevron-left"></i> vue 渲染问题
               </a>
             
           </div>
@@ -422,10 +409,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/13/2017-03-13-javascript_trick/" rel="prev" title="你不知道的前端新特性 阅读笔记">
-                你不知道的前端新特性 阅读笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -550,7 +533,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Box盒子定义"><span class="nav-number">1.</span> <span class="nav-text">Box盒子定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#布局规则："><span class="nav-number">2.</span> <span class="nav-text">布局规则：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BFC-生成条件"><span class="nav-number">3.</span> <span class="nav-text">BFC 生成条件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用场景和案例"><span class="nav-number">4.</span> <span class="nav-text">使用场景和案例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考资料"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#render-函数"><span class="nav-number">2.</span> <span class="nav-text">render 函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jsx"><span class="nav-number">3.</span> <span class="nav-text">jsx</span></a></li></ol></div>
             
 
           </div>
