@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="yangjl,前端技术，笔记" />
 
 
 
@@ -112,7 +112,7 @@
     motion: true,
     duoshuo: {
       userId: '0',
-      author: 'yangjl'
+      author: 'Author'
     },
     algolia: {
       applicationID: '',
@@ -142,6 +142,16 @@
 
 
 
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?28d4de16e8dc14e71a34c3866bbf506c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 
@@ -175,7 +185,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">做人不卖萌跟咸鱼有什么区别</p>
+        <h1 class="site-subtitle" itemprop="description">做人不卖萌跟咸鱼有什么区别</h1>
       
   </div>
 
@@ -220,7 +230,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i>
             
-            分类
+            标签
           </a>
         </li>
       
@@ -273,6 +283,132 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2016/08/17/2016-08-17-ES6-Arguments&Parameters/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨建兰">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/8067515?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="楠持的小铺">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/17/2016-08-17-ES6-Arguments&Parameters/" itemprop="url">
+                  ES6中Arguments和Parameters用法解析阅读笔记
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2016-08-17T00:00:00+08:00">
+                2016-08-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="ES6中Arguments和Parameters用法解析阅读笔记"><a href="#ES6中Arguments和Parameters用法解析阅读笔记" class="headerlink" title="ES6中Arguments和Parameters用法解析阅读笔记"></a>ES6中Arguments和Parameters用法解析阅读笔记</h2><p><a href="http://www.zcfy.cc/article/953" target="_blank" rel="external">原文</a></p>
+<h6 id="扩展操作符-…"><a href="#扩展操作符-…" class="headerlink" title="扩展操作符 …"></a>扩展操作符 …</h6><p>数组扩展成单独的参数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//es6</span></div><div class="line"><span class="keyword">var</span> myArray = [<span class="number">5</span>, <span class="number">10</span>, <span class="number">50</span>];</div><div class="line"><span class="built_in">Math</span>.max(...myArray);  </div><div class="line"></div><div class="line"><span class="comment">//es5</span></div><div class="line"><span class="keyword">var</span> myArray = [<span class="number">5</span>, <span class="number">10</span>, <span class="number">50</span>];</div><div class="line"><span class="built_in">Math</span>.max(myArray);    <span class="comment">// Error: NaN</span></div><div class="line"><span class="built_in">Math</span>.max.apply(<span class="built_in">Math</span>, myArray);    <span class="comment">// 50</span></div></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/08/17/2016-08-17-ES6-Arguments&Parameters/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2016/08/16/2016-08-16-HTTP2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -290,7 +426,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
             
             
               
@@ -300,7 +436,7 @@
                 </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -310,9 +446,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-16T00:00:00+08:00">
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2016-08-16T00:00:00+08:00">
                 2016-08-16
               </time>
             
@@ -357,10 +493,275 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/08/16/2016-08-16-HTTP2/#more" rel="contents">
-              Read more &raquo;
+              阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2016/08/16/2016-08-16-web-vr/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨建兰">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/8067515?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="楠持的小铺">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/16/2016-08-16-web-vr/" itemprop="url">
+                  WebVR
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2016-08-16T00:00:00+08:00">
+                2016-08-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><a href="https://aotu.io/notes/2016/08/24/2016-8-24-webvr/" target="_blank" rel="external">原文</a></p>
+<h4 id="HMD-种类"><a href="#HMD-种类" class="headerlink" title="HMD 种类"></a>HMD 种类</h4><ul>
+<li>滑配式</li>
+</ul>
+<p>这是目前最初级、价格最低的 HMD 设备。它与智能手机相连接，将 2D 显示变成 3D VR 显示。滑配式 HMD 设备强烈依赖于主机系统(智能手机)，后者是提供 VR 效果的必备部分。</p>
+<p>厂商：滑配式HMD设备包括谷歌 Carboard 和三星 Gear VR。</p>
+<ul>
+<li>分离式</li>
+</ul>
+<p>分离式 HMD 设备较滑配式 HMD 设备复杂，内置多种电子零部件。两者的主要不同是，分离式 HMD 设备拥有自己的显示屏，也可能配备自己的处理器(提供简单计算能力)。虽然分离式 HMD 设备不能独立于主机系统而工作，但却为VR市场创造了新的机会，因为主机系统已不再局限于智能手机，PC 和视频游戏机也能用于提供VR体验。总之，分离式 HMD 设备能提供高质量的 VR 体验。</p>
+<p>厂商：分离式 HMD 设备包括 Facebook Oculus Rift、HTC Vive 和 PlayStation VR。</p>
+<ul>
+<li>整合式</li>
+</ul>
+<p>整合式 HMD 设备拥有强大的计算能力和追踪系统。作为一款独立的计算设备，整合式 HMD 设备将配备一整套零部件，价格甚至高于普通 PC。</p>
+<p>厂商：微软 HoloLens</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/08/16/2016-08-16-web-vr/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2016/08/16/2016-08-16-web-animate/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨建兰">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/8067515?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="楠持的小铺">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/16/2016-08-16-web-animate/" itemprop="url">
+                  web 动画
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2016-08-16T00:00:00+08:00">
+                2016-08-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="http://www.w3cplus.com/animation/animations.html" target="_blank" rel="external">原文地址</a></p>
+<h4 id="经验法则"><a href="#经验法则" class="headerlink" title="经验法则"></a>经验法则</h4><ul>
+<li><p>当您为 UI 元素采用较小的独立状态时，使用 CSS。 CSS 转换和动画非常适合于从侧面引入导航菜单，或显示工具提示。 最终，可以使用 JavaScript 来控制状态，但动画本身是采用 CSS.</p>
+</li>
+<li><p>在需要对动画进行大量控制时，使用 JavaScript。 动态跟踪触摸位置的动画，或需要停止、暂停、减速或倒退的动画一般需要使用 JavaScript。 如果您已使用包括了动画功能的 jQuery 或 JavaScript 框架，则可能发现继续使用该方法来做动画在总体上更方便，而不是切换到 CSS</p>
+</li>
+</ul>
+<h4 id="transitionend"><a href="#transitionend" class="headerlink" title="transitionend"></a>transitionend</h4><h4 id="requestAnimationFrame"><a href="#requestAnimationFrame" class="headerlink" title="requestAnimationFrame"></a>requestAnimationFrame</h4><h4 id="will-change"><a href="#will-change" class="headerlink" title="will-change"></a>will-change</h4>
+          
         
       
     </div>
@@ -419,7 +820,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
             
             
               
@@ -429,7 +830,7 @@
                 </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -439,9 +840,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-15T00:00:00+08:00">
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2016-08-15T00:00:00+08:00">
                 2016-08-15
               </time>
             
@@ -546,7 +947,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
             
             
               
@@ -556,7 +957,7 @@
                 </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -566,9 +967,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-14T00:00:00+08:00">
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2016-08-14T00:00:00+08:00">
                 2016-08-14
               </time>
             
@@ -684,7 +1085,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
             
             
               
@@ -694,7 +1095,7 @@
                 </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -704,9 +1105,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-13T00:00:00+08:00">
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2016-08-13T00:00:00+08:00">
                 2016-08-13
               </time>
             
@@ -750,7 +1151,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/08/13/2016-08-13-version-number/#more" rel="contents">
-              Read more &raquo;
+              阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -812,7 +1213,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
             
             
               
@@ -822,7 +1223,7 @@
                 </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -832,9 +1233,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-27T00:00:00+08:00">
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2016-07-27T00:00:00+08:00">
                 2016-07-27
               </time>
             
@@ -871,11 +1272,11 @@
       
         
           <h4 id="ie-条件注释"><a href="#ie-条件注释" class="headerlink" title="ie 条件注释"></a>ie 条件注释</h4><p>@if @else @end </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;!--[<span class="keyword">if</span> IE]&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">![endif]--</span>&gt;</span></span></div><div class="line"></div><div class="line"><span class="comment">&lt;!--[if lte IE 7]&gt;</span></div><div class="line"></div><div class="line">&lt;![endif]--&gt;</div><div class="line"></div><div class="line"><span class="comment">&lt;!-- 条件注释 --&gt;</span></div><div class="line"></div><div class="line"> @_jscript //IE 中总是 true</div><div class="line">   /*@cc_on</div><div class="line">        @if(@_jscript) alert('@_jscript:'+@_jscript);</div><div class="line">    @end</div><div class="line">    @*/</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;!--[<span class="keyword">if</span> IE]&gt;</div><div class="line">&lt;![endif]--&gt;</div><div class="line"></div><div class="line">&lt;!--[if lte IE 7]&gt;</div><div class="line"></div><div class="line">&lt;![endif]--&gt;</div><div class="line"></div><div class="line">&lt;!-- 条件注释 --&gt;</div><div class="line"></div><div class="line"> @_jscript //IE 中总是 true</div><div class="line">   /*@cc_on</div><div class="line">        @if(@_jscript) alert('@_jscript:'+@_jscript);</div><div class="line">    @end</div><div class="line">    @*/</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/07/27/2016-07-27-JavaScript 权威指南/#more" rel="contents">
-              Read more &raquo;
+              阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -937,7 +1338,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
             
             
               
@@ -947,7 +1348,7 @@
                 </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -957,9 +1358,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-17T00:00:00+08:00">
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2016-07-17T00:00:00+08:00">
                 2016-07-17
               </time>
             
@@ -1000,132 +1401,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/07/17/2016-07-17-http-refer/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2016/06/11/2016-06-17-JavaScript Variable ascension/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="杨建兰">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/8067515?v=3&s=460">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="楠持的小铺">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/11/2016-06-17-JavaScript Variable ascension/" itemprop="url">
-                  javascript 变量提升 阅读笔记
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-06-11T00:00:00+08:00">
-                2016-06-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="提升与let"><a href="#提升与let" class="headerlink" title="提升与let"></a>提升与let</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isTruthy</span>(<span class="params">value</span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> myVariable = <span class="string">'Value 1'</span>;</div><div class="line">  <span class="keyword">if</span> (value) &#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * myVariable的临时死亡区间</div><div class="line">     */</div><div class="line">    <span class="comment">// Throws ReferenceError: myVariable is not defined</span></div><div class="line">    <span class="built_in">console</span>.log(myVariable);</div><div class="line">    <span class="keyword">let</span> myVariable = <span class="string">'Value 2'</span>;</div><div class="line">    <span class="comment">// myVariable的临时死亡区间至此结束</span></div><div class="line">    <span class="built_in">console</span>.log(myVariable); <span class="comment">// =&gt; 'Value 2'</span></div><div class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">&#125;</div><div class="line">isTruthy(<span class="number">1</span>); <span class="comment">// =&gt; true</span></div></pre></td></tr></table></figure>
-<p>let在块级作用域内的提升保护了变量不受外层作用域影响。在临时死亡区间内访问let定义的变量时抛出异常会促使开发者遵循更好的编码实践：先声明，后使用.</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/06/11/2016-06-17-JavaScript Variable ascension/#more" rel="contents">
-              Read more &raquo;
+              阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -1187,7 +1463,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
             
             
               
@@ -1197,7 +1473,7 @@
                 </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -1207,9 +1483,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-06-11T00:00:00+08:00">
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2016-06-11T00:00:00+08:00">
                 2016-06-11
               </time>
             
@@ -1249,7 +1525,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/06/11/2016-06-11-http cache/#more" rel="contents">
-              Read more &raquo;
+              阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -1289,7 +1565,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1329,16 +1605,16 @@
 
           <p class="site-author-name" itemprop="name">杨建兰</p>
            
-              <p class="site-description motion-element" itemprop="description">欢迎来到我的个人收藏铺~</p>
-          
+              <p class="site-description motion-element" itemprop="description"></p>
+           
         </div>
         <nav class="site-state motion-element">
 
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">38</span>
-                <span class="site-state-item-name">posts</span>
+                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-name">文章</span>
               </a>
             </div>
           
@@ -1351,7 +1627,7 @@
             <div class="site-state-item site-state-tags">
               
                 <span class="site-state-item-count">13</span>
-                <span class="site-state-item-name">tags</span>
+                <span class="site-state-item-name">标签</span>
               
             </div>
           
@@ -1402,7 +1678,7 @@
 
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
@@ -1546,6 +1822,21 @@
   
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 
   
 

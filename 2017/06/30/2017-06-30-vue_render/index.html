@@ -97,7 +97,7 @@
 <meta property="og:url" content="http://lanria990.github.io/2017/06/30/2017-06-30-vue_render/index.html">
 <meta property="og:site_name" content="楠持的小铺">
 <meta property="og:description" content="问题问题：需要实现一个动态的表单配置,Model配置如下.条件时间比较赶，原有项目利用了elm ui 组件库12345678910111213141516171819202122232425262728293031const config= &amp;#123;    items: [      &amp;#123;        componentName: &amp;apos;app-select&amp;apos;,">
-<meta property="og:updated_time" content="2017-07-01T08:20:51.422Z">
+<meta property="og:updated_time" content="2017-07-09T01:04:32.332Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue render">
 <meta name="twitter:description" content="问题问题：需要实现一个动态的表单配置,Model配置如下.条件时间比较赶，原有项目利用了elm ui 组件库12345678910111213141516171819202122232425262728293031const config= &amp;#123;    items: [      &amp;#123;        componentName: &amp;apos;app-select&amp;apos;,">
@@ -114,7 +114,7 @@
     motion: true,
     duoshuo: {
       userId: '0',
-      author: 'yangjl'
+      author: 'Author'
     },
     algolia: {
       applicationID: '',
@@ -144,6 +144,16 @@
 
 
 
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?28d4de16e8dc14e71a34c3866bbf506c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 
@@ -175,7 +185,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">做人不卖萌跟咸鱼有什么区别</p>
+        <h1 class="site-subtitle" itemprop="description">做人不卖萌跟咸鱼有什么区别</h1>
       
   </div>
 
@@ -220,7 +230,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i>
             
-            分类
+            标签
           </a>
         </li>
       
@@ -290,14 +300,14 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
             
             
               
                 vue render
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -307,9 +317,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-30T00:00:00+08:00">
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2017-06-30T00:00:00+08:00">
                 2017-06-30
               </time>
             
@@ -345,17 +355,30 @@
 
       
         <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>问题：需要实现一个动态的表单配置,Model配置如下.条件时间比较赶，原有项目利用了elm ui 组件库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">const config= &#123;</div><div class="line">    items: [</div><div class="line">      &#123;</div><div class="line">        componentName: &apos;app-select&apos;,</div><div class="line">        type: &apos;select&apos;,</div><div class="line">        key: &apos;test&apos;,</div><div class="line">        value: &apos;1&apos;,</div><div class="line">        options: [&#123;</div><div class="line">          value: &apos;1&apos;,</div><div class="line">          label: &apos;公司新闻&apos;</div><div class="line">        &#125;, &#123;</div><div class="line">          value: &apos;2&apos;,</div><div class="line">          label: &apos;新闻列表&apos;</div><div class="line">        &#125;]</div><div class="line">      &#125;,</div><div class="line">      &#123;</div><div class="line">        componentName: &apos;el-input&apos;,</div><div class="line">        type: &apos;text&apos;,</div><div class="line">        key: &apos;test_string&apos;,</div><div class="line">        placeholder: &apos;test_string&apos;</div><div class="line">      &#125;,</div><div class="line">      &#123;</div><div class="line">        componentName: &apos;el-input-number&apos;,</div><div class="line">        max: 100,</div><div class="line">        min: 0,</div><div class="line">        value: &apos;5&apos;,</div><div class="line">        key: &apos;test_int&apos;,</div><div class="line">        placeholder: &apos;test_int&apos;</div><div class="line">      &#125;]</div><div class="line">&#125;</div><div class="line">cont formData = initFormData(config) //&#123;text_string:&apos;&apos;...&#125;</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <h2 id="render-函数"><a href="#render-函数" class="headerlink" title="render 函数"></a>render 函数</h2><ol>
 <li>API地址<a href="https://cn.vuejs.org/v2/guide/render-function.html#main" target="_blank" rel="external">Render 函数</a></li>
 </ol>
 <p>参数：<br> createElement:(componentName,options,ArrayChild)<br> context:{props}</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">Vue.component(&#123;</div><div class="line">    <span class="attr">methods</span>:&#123;&#125;,</div><div class="line">    render(h,ctx)&#123;</div><div class="line">        h(<span class="string">'test-form'</span>,&#123;</div><div class="line">            <span class="attr">props</span>:&#123;&#125;</div><div class="line">        &#125;,)</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>2.实现render的v-model</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> props = &#123;&#125;</div><div class="line"><span class="keyword">const</span> dataMap = &#123;</div><div class="line">  <span class="attr">domProps</span>: &#123;</div><div class="line">    <span class="attr">value</span>: self.formData[item.key] || <span class="string">''</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">props</span>: &#123;</div><div class="line">    ...props,</div><div class="line">    <span class="attr">value</span>: self.formData[item.key] || <span class="string">''</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">on</span>: &#123;</div><div class="line">    <span class="attr">input</span>: <span class="function">(<span class="params">val</span>) =&gt;</span> &#123;</div><div class="line">      self.formData[item.key] = val</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="问题-1"><a href="#问题-1" class="headerlink" title="问题"></a>问题</h4><ul>
+<li><code>You may have an infinite update loop in a component render function</code></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  </div><div class="line">  data () &#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">      <span class="attr">formData</span>: &#123;&#125;<span class="comment">//null</span></div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  render () &#123;</div><div class="line">    <span class="keyword">const</span> result = &#123;&#125;</div><div class="line">    <span class="comment">//do something...</span></div><div class="line">    <span class="comment">//this.$set(this,formData,&#123;&#125;)</span></div><div class="line">    <span class="keyword">this</span>.formData = <span class="built_in">Object</span>.assign(&#123;&#125;,<span class="keyword">this</span>.formData,result)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>formData</code> <code>render</code> 函数赋值。改为在mounted、created、data中赋值，watch中监控.【需要学习生命周期】</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  </div><div class="line">  data () &#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">      <span class="attr">formData</span>: &#123;&#125;<span class="comment">//null</span></div><div class="line">    &#125;</div><div class="line">  &#125;,  </div><div class="line">  mounted () &#123;</div><div class="line">   <span class="keyword">const</span> result = &#123;&#125;</div><div class="line">    <span class="comment">//do something...</span></div><div class="line">    <span class="keyword">this</span>.$set(<span class="keyword">this</span>,formData,&#123;&#125;)</div><div class="line">    <span class="keyword">this</span>.formData = <span class="built_in">Object</span>.assign(&#123;&#125;,<span class="keyword">this</span>.formData,result)</div><div class="line">  &#125;,</div><div class="line">  render () &#123;</div><div class="line">    <span class="keyword">const</span> result = &#123;&#125;</div><div class="line">    <span class="comment">//do something...</span></div><div class="line">    <span class="comment">//this.$set(this,formData,&#123;&#125;)</span></div><div class="line">    <span class="keyword">this</span>.formData = <span class="built_in">Object</span>.assign(&#123;&#125;,<span class="keyword">this</span>.formData,result)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>函数组件化<br>functional: true</p>
 <h2 id="jsx"><a href="#jsx" class="headerlink" title="jsx"></a>jsx</h2><p>render组件比较多的情况下使用jsx比较合适</p>
 <p>package.json</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">npm install\</div><div class="line">  babel-plugin-syntax-jsx\</div><div class="line">  babel-plugin-transform-vue-jsx\</div><div class="line">  babel-helper-vue-jsx-merge-props\</div><div class="line">  babel-preset-es2015\</div><div class="line">  --save-dev</div></pre></td></tr></table></figure>
 <p>eslint 配置<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="string">"parserOptions"</span>: &#123;</div><div class="line">  <span class="string">"ecmaFeatures"</span>: &#123;</div><div class="line">    <span class="string">"experimentalObjectRestSpread"</span>: <span class="literal">true</span>,</div><div class="line">    <span class="string">"jsx"</span>: <span class="literal">true</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>.babelrc 配置<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">   <span class="string">"plugins"</span>: [ <span class="string">"transform-vue-jsx"</span>,<span class="string">"transform-runtime"</span>],</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"> Vue.component(&#123;</div><div class="line">    <span class="attr">methods</span>:&#123;&#125;,</div><div class="line">    render(h,ctx)&#123;</div><div class="line">        <span class="keyword">const</span> props = &#123;</div><div class="line">            <span class="attr">props</span>:&#123;&#125;,</div><div class="line">            <span class="attr">on</span>:&#123;</div><div class="line">                <span class="attr">input</span>:<span class="function"><span class="params">val</span>=&gt;</span>&#123;</div><div class="line">                    result = val</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125; </div><div class="line">       <span class="keyword">return</span> (</div><div class="line">        <span class="xml"><span class="tag">&lt;<span class="name">app-form</span> <span class="attr">...props</span>&gt;</span></span></div><div class="line">       //...</div><div class="line">       <span class="tag">&lt;/<span class="name">app-form</span>&gt;</span></div><div class="line">       )</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h4 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h4><ul>
+<li><a href="http://tanyang.oschina.io/vue-elment-setting/dist/index.html#/" target="_blank" rel="external">vue-elment-setting</a></li>
+</ul>
 
       
     </div>
@@ -409,6 +432,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/03/2017-07-03-arry-reduce/" rel="prev" title="Array reduce">
+                Array reduce <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -476,16 +503,16 @@
 
           <p class="site-author-name" itemprop="name">杨建兰</p>
            
-              <p class="site-description motion-element" itemprop="description">欢迎来到我的个人收藏铺~</p>
-          
+              <p class="site-description motion-element" itemprop="description"></p>
+           
         </div>
         <nav class="site-state motion-element">
 
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">38</span>
-                <span class="site-state-item-name">posts</span>
+                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-name">文章</span>
               </a>
             </div>
           
@@ -498,7 +525,7 @@
             <div class="site-state-item site-state-tags">
               
                 <span class="site-state-item-count">13</span>
-                <span class="site-state-item-name">tags</span>
+                <span class="site-state-item-name">标签</span>
               
             </div>
           
@@ -533,7 +560,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#render-函数"><span class="nav-number">2.</span> <span class="nav-text">render 函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jsx"><span class="nav-number">3.</span> <span class="nav-text">jsx</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#render-函数"><span class="nav-number">2.</span> <span class="nav-text">render 函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#问题-1"><span class="nav-number">2.0.1.</span> <span class="nav-text">问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jsx"><span class="nav-number">3.</span> <span class="nav-text">jsx</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Demo"><span class="nav-number">3.0.1.</span> <span class="nav-text">Demo</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -565,7 +592,7 @@
 
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
@@ -713,6 +740,21 @@
   
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 
   
 
