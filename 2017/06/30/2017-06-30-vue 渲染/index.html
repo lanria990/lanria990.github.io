@@ -98,7 +98,7 @@
 <meta property="og:site_name" content="楠持的小铺">
 <meta property="og:description" content="vue 渲染问题  数据变化触发render函数  vue相关API 声明响应式属性 列表渲染  数据类型Array 列表渲染   添加和删除  123456list.push()list.pop() list.splice(0) // 需要数组长度list.splice(index,1) //删除list.splice(index,1,newValue) // 替换  清空或者重置  1234l">
 <meta property="og:image" content="https://cn.vuejs.org/images/data.png">
-<meta property="og:updated_time" content="2017-07-08T15:54:01.538Z">
+<meta property="og:updated_time" content="2017-07-09T13:31:28.878Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue 渲染问题">
 <meta name="twitter:description" content="vue 渲染问题  数据变化触发render函数  vue相关API 声明响应式属性 列表渲染  数据类型Array 列表渲染   添加和删除  123456list.push()list.pop() list.splice(0) // 需要数组长度list.splice(index,1) //删除list.splice(index,1,newValue) // 替换  清空或者重置  1234l">
@@ -380,7 +380,7 @@
 <ol>
 <li>添加属性</li>
 </ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.$set(<span class="keyword">this</span>,<span class="string">'dataMap'</span>,&#123;&#125;) <span class="comment">//清空</span></div><div class="line"><span class="keyword">this</span>.$set(<span class="keyword">this</span>.dataMap,<span class="string">'key'</span>,value) <span class="comment">//添加或者修改单个属性值 </span></div><div class="line"><span class="keyword">this</span>.dataMap = <span class="built_in">Object</span>.assign(&#123;&#125;,<span class="keyword">this</span>.dataMap, result) <span class="comment">// 继承数据</span></div><div class="line"></div><div class="line"><span class="keyword">this</span>.$set(<span class="keyword">this</span>,<span class="string">'dataMap'</span>,&#123;&#125;)</div><div class="line"><span class="keyword">this</span>.dataMap = <span class="built_in">Object</span>.assign(&#123;&#125;,<span class="keyword">this</span>.dataMap, result) <span class="comment">//重置数据</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Vue 不允许在已经创建的实例上动态添加新的根级响应式属性所以这种方法无法添加成为getter/setter的属性</span></div><div class="line"><span class="comment">//this.$set(this,'dataMap',&#123;&#125;) //清空</span></div><div class="line"><span class="keyword">this</span>.$set(<span class="keyword">this</span>.dataMap,<span class="string">'key'</span>,value) <span class="comment">//添加或者修改单个属性值 </span></div><div class="line"><span class="keyword">this</span>.dataMap = <span class="built_in">Object</span>.assign(&#123;&#125;,<span class="keyword">this</span>.dataMap, result) <span class="comment">// 继承数据</span></div><div class="line"></div><div class="line"><span class="keyword">this</span>.$set(<span class="keyword">this</span>,<span class="string">'dataMap'</span>,&#123;&#125;)</div><div class="line"><span class="keyword">this</span>.dataMap = <span class="built_in">Object</span>.assign(&#123;&#125;,<span class="keyword">this</span>.dataMap, result) <span class="comment">//重置数据</span></div></pre></td></tr></table></figure>
 <h2 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h2><ol>
 <li><code>max stack size exceeded</code></li>
 </ol>
@@ -527,7 +527,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-count">44</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -539,10 +539,10 @@
             
             
             <div class="site-state-item site-state-tags">
-              
-                <span class="site-state-item-count">13</span>
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">标签</span>
-              
+              </a>
             </div>
           
 

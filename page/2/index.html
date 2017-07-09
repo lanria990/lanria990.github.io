@@ -283,7 +283,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2017/03/20/2017-03-20-relative/">
+    <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2017/03/22/2017-03-22-vertical-align/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="杨建兰">
@@ -305,8 +305,278 @@
             
               
                 
-                <a class="post-title-link" href="/2017/03/20/2017-03-20-relative/" itemprop="url">
-                  relative
+                <a class="post-title-link" href="/2017/03/22/2017-03-22-vertical-align/" itemprop="url">
+                  vertical-align 垂直对齐
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2017-03-22T00:00:00+08:00">
+                2017-03-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h4 id="vertical-align-选项值"><a href="#vertical-align-选项值" class="headerlink" title="vertical-align 选项值"></a>vertical-align 选项值</h4><ul>
+<li>bottom</li>
+<li>baseline 默认值</li>
+<li>middle</li>
+<li><p>top</p>
+</li>
+<li><p>text-top:元素顶端与父元素字体的顶端对齐</p>
+</li>
+<li><p>text-bottom</p>
+</li>
+<li><p>sub : 元素基线与父元素的下标基线对齐。</p>
+</li>
+<li><p>super</p>
+</li>
+<li><p>value: %,em,rem,px 公式(line-height*value),支持负值</p>
+</li>
+<li><p>inherit,initial</p>
+</li>
+</ul>
+<p>生效条件</p>
+<p>display:inline/inline-block<br>display:table-cell</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/22/2017-03-22-vertical-align/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2017/03/21/2017-03-21-reduce_transduce/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨建兰">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/8067515?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="楠持的小铺">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/21/2017-03-21-reduce_transduce/" itemprop="url">
+                  函数式编程
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2017-03-21T00:00:00+08:00">
+                2017-03-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <!-- 函数式编程 reduce/transduce -->
+<p>柯里化默认只接受一个参数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x,y</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> x+y;</div><div class="line">&#125;</div><div class="line"></div><div class="line">add(<span class="number">1</span>,<span class="number">2</span>) <span class="comment">//3</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">addX</span>(<span class="params">y</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">x</span>)=&gt;</span>x+y;</div><div class="line">&#125;</div><div class="line"></div><div class="line">addX(<span class="number">1</span>)(<span class="number">2</span>) <span class="comment">//3</span></div></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/21/2017-03-21-reduce_transduce/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2017/03/20/relative/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨建兰">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/8067515?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="楠持的小铺">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/20/relative/" itemprop="url">
+                  CSS3 relative
                 </a>
               
             
@@ -358,14 +628,38 @@
 
       
         
-          <h4 id="relative"><a href="#relative" class="headerlink" title="relative"></a>relative</h4><p>relative 是相对于自身原来位置的移动，还会占据原来的空间<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/20/2017-03-20-relative/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <h4 id="relative"><a href="#relative" class="headerlink" title="relative"></a>relative</h4><p>relative 是相对于自身原来位置的移动，还会占据原来的空间</p>
+<h4 id="relative-amp-absolute"><a href="#relative-amp-absolute" class="headerlink" title="relative &amp; absolute"></a>relative &amp; absolute</h4><p> absolute相对于relative定位<br>影响</p>
+<ul>
+<li>top/left/right/bottom</li>
+<li>z-index</li>
+<li>限制absolute超出overflow布局</li>
+</ul>
+<h4 id="relative-amp-fixed"><a href="#relative-amp-fixed" class="headerlink" title="relative &amp; fixed"></a>relative &amp; fixed</h4><p>影响</p>
+<ul>
+<li>z-index</li>
+</ul>
+<h4 id="relative-z-index"><a href="#relative-z-index" class="headerlink" title="relative  z-index"></a>relative  z-index</h4><p> z-index 值大的在顶层显示<br> z-index auto 后来居上<br> z-index auto,absolute :</p>
+<ul>
+<li>absolute显示<ul>
+<li>absolute 的z-index 值</li>
+<li>relative 后来居上</li>
+<li>absolute 后来居上</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>IE6/7中会有一定的问题,会按照 relative 后来居上</p>
+</blockquote>
+<h4 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h4><p>relative 会影响absolute或者fixed的布局，所以避免使用 relative</p>
+<ul>
+<li>使用margin布局替代</li>
+<li>最小化relative</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"position: relative"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"position: absolute"</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!--do something--&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+
+          
         
       
     </div>
@@ -490,6 +784,130 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/03/20/2017-03-20-pointfree/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2017/03/20/2017-03-20-relative/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨建兰">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/8067515?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="楠持的小铺">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/20/2017-03-20-relative/" itemprop="url">
+                  relative
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2017-03-20T00:00:00+08:00">
+                2017-03-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h4 id="relative"><a href="#relative" class="headerlink" title="relative"></a>relative</h4><p>relative 是相对于自身原来位置的移动，还会占据原来的空间<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/20/2017-03-20-relative/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -915,136 +1333,6 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2017/03/01/2017-03-01-bfc/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="杨建兰">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/8067515?v=3&s=460">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="楠持的小铺">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/01/2017-03-01-bfc/" itemprop="url">
-                  BFC 块极化格式上下文学习笔记
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2017-03-01T00:00:00+08:00">
-                2017-03-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Block fomatting context (简称BFC)</p>
-<h4 id="Box盒子定义"><a href="#Box盒子定义" class="headerlink" title="Box盒子定义"></a>Box盒子定义</h4><p>Box: 盒子，布局的基本单位。display ，决定盒子的类型</p>
-<ul>
-<li>block-level box:display 属性为 block, list-item, table 的元素，会生成 block-level box。并且参与 block fomatting context；</li>
-<li>inline-level box:display 属性为 inline, inline-block, inline-table 的元素，会生成 inline-level box。并且参与 inline formatting context</li>
-<li>run-in box:CSS3</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/01/2017-03-01-bfc/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2017/03/01/bugs/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1172,7 +1460,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2017/02/28/2017-02-28-api-design/">
+    <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2017/03/01/2017-03-01-bfc/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="杨建兰">
@@ -1194,8 +1482,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/02/28/2017-02-28-api-design/" itemprop="url">
-                  从达标到卓越 —— API 设计之道 阅读笔记
+                <a class="post-title-link" href="/2017/03/01/2017-03-01-bfc/" itemprop="url">
+                  BFC 块极化格式上下文学习笔记
                 </a>
               
             
@@ -1211,8 +1499,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2017-02-28T00:00:00+08:00">
-                2017-02-28
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2017-03-01T00:00:00+08:00">
+                2017-03-01
               </time>
             
 
@@ -1247,296 +1535,16 @@
 
       
         
-          <p><a href="http://taobaofed.org/blog/2017/02/16/a-guide-to-api-design/" target="_blank" rel="external">从达标到卓越 —— API 设计之道</a></p>
-<h4 id="规则"><a href="#规则" class="headerlink" title="规则"></a>规则</h4><ul>
-<li>达标：词法和语法<ul>
-<li>正确拼写</li>
-<li>准确用词</li>
-<li>注意单复数</li>
-<li>不要搞错词性</li>
-<li>处理缩写</li>
-<li>用对时态和语态</li>
-</ul>
-</li>
-<li>进阶：语义和可用性<ul>
-<li>单一职责</li>
-<li>避免副作用</li>
-<li>合理设计函数参数</li>
-<li>合理运用函数重载</li>
-<li>使返回值可预期</li>
-<li>固化术语表</li>
-<li>遵循一致的 API 风格</li>
-</ul>
-</li>
-<li><p>卓越：系统性和大局观</p>
+          <p>Block fomatting context (简称BFC)</p>
+<h4 id="Box盒子定义"><a href="#Box盒子定义" class="headerlink" title="Box盒子定义"></a>Box盒子定义</h4><p>Box: 盒子，布局的基本单位。display ，决定盒子的类型</p>
 <ul>
-<li>版本控制</li>
-<li>确保向下兼容</li>
-<li>设计扩展机制</li>
-<li>控制 API 的抽象级别</li>
-<li>收敛 API 集</li>
-<li>发散 API 集</li>
-<li>制定 API 的支持策略</li>
+<li>block-level box:display 属性为 block, list-item, table 的元素，会生成 block-level box。并且参与 block fomatting context；</li>
+<li>inline-level box:display 属性为 inline, inline-block, inline-table 的元素，会生成 inline-level box。并且参与 inline formatting context</li>
+<li>run-in box:CSS3</li>
 </ul>
-<p>正确拼写 (IDE 的 typo 提示（单词拼写错误提示）)</p>
-<p>准确用词<br>理解 API 的作用和 上下文场景，成对出现的正反义词不可混用<br>eg.<br>message、notification、news </p>
-<p>message:一般指双方通信的消息，是内容载体。而且经常有来有往、成对出现。比如 postMessage() 和 receiveMessage()</p>
-<p>notification: 通知 new NotificationManager()<br>news：较长的消息，比 notification 更重量级 getTopNews<br>feed：订阅 fetchWeitaoFeeds</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/02/28/2017-02-28-api-design/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2017/02/20/2017-02-20-prime-number/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="杨建兰">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/8067515?v=3&s=460">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="楠持的小铺">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/20/2017-02-20-prime-number/" itemprop="url">
-                  “蝉原则”与CSS3随机多背景随机圆角 阅读笔记
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2017-02-20T00:00:00+08:00">
-                2017-02-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <ul>
-<li><a href="http://www.zhangxinxu.com/wordpress/2017/02/cicada-principle-css3-randomisation-multiple-backgrounds-border-radius/" target="_blank" rel="external">原文-“蝉原则”与CSS3随机多背景随机圆角</a></li>
-</ul>
-<p>“蝉原则”：以质数作为循环周期来增加“自然随机性”的策略<br>使用场景：最小成本实现更自然的随机效果</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/02/20/2017-02-20-prime-number/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2017/02/19/2017-02-19-angular2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="杨建兰">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/8067515?v=3&s=460">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="楠持的小铺">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/19/2017-02-19-angular2/" itemprop="url">
-                  Angular2 学习笔记
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2017-02-19T00:00:00+08:00">
-                2017-02-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="Angular2"><a href="#Angular2" class="headerlink" title="Angular2"></a>Angular2</h4><p>核心概念</p>
-<p>组件</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/02/19/2017-02-19-angular2/#more" rel="contents">
+            <a class="btn" href="/2017/03/01/2017-03-01-bfc/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1625,7 +1633,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-count">44</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -1637,10 +1645,10 @@
             
             
             <div class="site-state-item site-state-tags">
-              
-                <span class="site-state-item-count">13</span>
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">标签</span>
-              
+              </a>
             </div>
           
 
