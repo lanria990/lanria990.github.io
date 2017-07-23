@@ -112,7 +112,7 @@
     motion: true,
     duoshuo: {
       userId: '0',
-      author: 'Penulis'
+      author: 'Author'
     },
     algolia: {
       applicationID: '',
@@ -210,7 +210,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i>
             
-            Beranda
+            Accueil
           </a>
         </li>
       
@@ -220,7 +220,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i>
             
-            Arsip
+            Archives
           </a>
         </li>
       
@@ -250,7 +250,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i>
             
-            Tentang
+            A propos
           </a>
         </li>
       
@@ -320,7 +320,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Diposting di</span>
+                <span class="post-meta-item-text">Posté le</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-16T00:00:00+08:00">
                 2016-08-16
@@ -367,7 +367,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/08/16/2016-08-16-HTTP2/#more" rel="contents">
-              Baca lebih &raquo;
+              Lire la suite &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -449,7 +449,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Diposting di</span>
+                <span class="post-meta-item-text">Posté le</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-15T00:00:00+08:00">
                 2016-08-15
@@ -576,7 +576,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Diposting di</span>
+                <span class="post-meta-item-text">Posté le</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-14T00:00:00+08:00">
                 2016-08-14
@@ -714,7 +714,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Diposting di</span>
+                <span class="post-meta-item-text">Posté le</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-13T00:00:00+08:00">
                 2016-08-13
@@ -760,7 +760,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/08/13/2016-08-13-version-number/#more" rel="contents">
-              Baca lebih &raquo;
+              Lire la suite &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -842,7 +842,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Diposting di</span>
+                <span class="post-meta-item-text">Posté le</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-27T00:00:00+08:00">
                 2016-07-27
@@ -881,11 +881,11 @@
       
         
           <h4 id="ie-条件注释"><a href="#ie-条件注释" class="headerlink" title="ie 条件注释"></a>ie 条件注释</h4><p>@if @else @end </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;!--[<span class="keyword">if</span> IE]&gt;</div><div class="line">&lt;![endif]--&gt;</div><div class="line"></div><div class="line">&lt;!--[if lte IE 7]&gt;</div><div class="line"></div><div class="line">&lt;![endif]--&gt;</div><div class="line"></div><div class="line">&lt;!-- 条件注释 --&gt;</div><div class="line"></div><div class="line"> @_jscript //IE 中总是 true</div><div class="line">   /*@cc_on</div><div class="line">        @if(@_jscript) alert('@_jscript:'+@_jscript);</div><div class="line">    @end</div><div class="line">    @*/</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;!--[<span class="keyword">if</span> IE]&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">![endif]--</span>&gt;</span></span></div><div class="line"></div><div class="line"><span class="comment">&lt;!--[if lte IE 7]&gt;</span></div><div class="line"></div><div class="line">&lt;![endif]--&gt;</div><div class="line"></div><div class="line"><span class="comment">&lt;!-- 条件注释 --&gt;</span></div><div class="line"></div><div class="line"> @_jscript //IE 中总是 true</div><div class="line">   /*@cc_on</div><div class="line">        @if(@_jscript) alert('@_jscript:'+@_jscript);</div><div class="line">    @end</div><div class="line">    @*/</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/07/27/2016-07-27-JavaScript 权威指南/#more" rel="contents">
-              Baca lebih &raquo;
+              Lire la suite &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -967,7 +967,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Diposting di</span>
+                <span class="post-meta-item-text">Posté le</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-17T00:00:00+08:00">
                 2016-07-17
@@ -1010,131 +1010,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/07/17/2016-07-17-http-refer/#more" rel="contents">
-              Baca lebih &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2016/06/11/2016-06-11-http cache/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="杨建兰">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/8067515?v=3&s=460">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="楠持的小铺">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/11/2016-06-11-http cache/" itemprop="url">
-                  HTTP 提高性能阅读笔记
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Diposting di</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-06-11T00:00:00+08:00">
-                2016-06-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><a href="https://github.com/lindazhang102/Personal-Blog/blob/master/http%20cache.md" target="_blank" rel="external">原文链接:HTTP 缓存头提高应用性能</a><br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/06/11/2016-06-11-http cache/#more" rel="contents">
-              Baca lebih &raquo;
+              Lire la suite &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -1216,7 +1092,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Diposting di</span>
+                <span class="post-meta-item-text">Posté le</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-06-11T00:00:00+08:00">
                 2016-06-11
@@ -1259,7 +1135,131 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/06/11/2016-06-17-JavaScript Variable ascension/#more" rel="contents">
-              Baca lebih &raquo;
+              Lire la suite &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2016/06/11/2016-06-11-http cache/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨建兰">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/8067515?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="楠持的小铺">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/11/2016-06-11-http cache/" itemprop="url">
+                  HTTP 提高性能阅读笔记
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posté le</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-06-11T00:00:00+08:00">
+                2016-06-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><a href="https://github.com/lindazhang102/Personal-Blog/blob/master/http%20cache.md" target="_blank" rel="external">原文链接:HTTP 缓存头提高应用性能</a><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/06/11/2016-06-11-http cache/#more" rel="contents">
+              Lire la suite &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -1348,7 +1348,7 @@
             <div class="site-state-item site-state-posts">
               <a href="/archives">
                 <span class="site-state-item-count">48</span>
-                <span class="site-state-item-name">posting</span>
+                <span class="site-state-item-name">articles</span>
               </a>
             </div>
           
@@ -1416,7 +1416,7 @@
 </div>
 
 <div class="theme-info">
-  Tema -
+  Thème -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Pisces
   </a>
