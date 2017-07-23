@@ -97,7 +97,7 @@
 <meta property="og:url" content="http://lanria990.github.io/2017/07/14/2017-07-14-defineProperty/index.html">
 <meta property="og:site_name" content="楠持的小铺">
 <meta property="og:description" content="Object.definePropertyAPIObject.defineProperty(obj, prop, descriptor)  obj:[Object] 目标对象  prop:[String] 需要定义或者修改的属性 descriptor:[Object] 配置属性 {enumerable,configurable,writable, get,set,value }  enumerab">
-<meta property="og:updated_time" content="2017-07-15T11:47:31.588Z">
+<meta property="og:updated_time" content="2017-07-22T11:41:36.492Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Object.defineProperty">
 <meta name="twitter:description" content="Object.definePropertyAPIObject.defineProperty(obj, prop, descriptor)  obj:[Object] 目标对象  prop:[String] 需要定义或者修改的属性 descriptor:[Object] 配置属性 {enumerable,configurable,writable, get,set,value }  enumerab">
@@ -114,7 +114,7 @@
     motion: true,
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: 'Penulis'
     },
     algolia: {
       applicationID: '',
@@ -210,7 +210,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i>
             
-            首页
+            Beranda
           </a>
         </li>
       
@@ -220,7 +220,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i>
             
-            归档
+            Arsip
           </a>
         </li>
       
@@ -230,7 +230,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i>
             
-            标签
+            Tags
           </a>
         </li>
       
@@ -250,7 +250,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i>
             
-            关于
+            Tentang
           </a>
         </li>
       
@@ -317,9 +317,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Diposting di</span>
               
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2017-07-14T00:00:00+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-14T00:00:00+08:00">
                 2017-07-14
               </time>
             
@@ -361,6 +361,7 @@
 <li>descriptor:[Object] 配置属性 {enumerable,configurable,writable, get,set,value }</li>
 </ul>
 <p>enumerable:[Boolean] default:true,true 时 forin是否可枚举<br>configurable：[Boolean]<br>value：default:undefined.<br>writable：[Boolean] default:true<br>set:[Function] default:undefined<br>get:[Function] default:undefined </p>
+<a id="more"></a>
 <h3 id="configurable"><a href="#configurable" class="headerlink" title="configurable"></a>configurable</h3><p><code>configurable:[Boolean]</code> ： default:true。是否能被删除或者修改</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = <span class="built_in">Object</span>.create(<span class="literal">null</span>)</div><div class="line"></div><div class="line"><span class="built_in">Object</span>.defineProperty(obj,<span class="string">'test'</span>,&#123;</div><div class="line">    <span class="attr">value</span>:<span class="number">1</span>,</div><div class="line">    <span class="attr">configurable</span>:<span class="literal">false</span>,</div><div class="line">&#125;)</div><div class="line"><span class="built_in">console</span>.log(<span class="string">`delete test`</span>)</div><div class="line"><span class="keyword">delete</span> obj.test <span class="comment">//false</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="string">`test`</span>,obj.test) <span class="comment">//1</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">`set test data 2`</span>)</div><div class="line">obj.test = <span class="number">2</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">`modify test value`</span>,obj.test) <span class="comment">//1</span></div></pre></td></tr></table></figure>
 <h3 id="enumerable"><a href="#enumerable" class="headerlink" title="enumerable"></a>enumerable</h3><p><code>enumerable:[Boolean]</code> ： default:true。是否能被枚举 forin,Object.keys</p>
@@ -413,8 +414,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/09/2017-07-09-vue-question-list/" rel="next" title="vue 使用过程中遇到的问题">
-                <i class="fa fa-chevron-left"></i> vue 使用过程中遇到的问题
+              <a href="/2017/07/14/2017-07-15-vue-observe-watcher/" rel="next" title="设计模式之观察者[订阅发布模式]">
+                <i class="fa fa-chevron-left"></i> 设计模式之观察者[订阅发布模式]
               </a>
             
           </div>
@@ -423,8 +424,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/07/14/2017-07-15-vue-observe-watcher/" rel="prev" title="设计模式之观察者[订阅发布模式]">
-                设计模式之观察者[订阅发布模式] <i class="fa fa-chevron-right"></i>
+              <a href="/2017/07/20/2017-07-20-=&===/" rel="prev" title="==和===">
+                ==和=== <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -474,10 +475,10 @@
         <ul class="sidebar-nav motion-element">
           
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
+            Daftar Isi
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
+            Ikhtisar
           </li>
         </ul>
       
@@ -501,8 +502,8 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">46</span>
-                <span class="site-state-item-name">文章</span>
+                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-name">posting</span>
               </a>
             </div>
           
@@ -515,7 +516,7 @@
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
                 <span class="site-state-item-count">16</span>
-                <span class="site-state-item-name">标签</span>
+                <span class="site-state-item-name">tags</span>
               </a>
             </div>
           
@@ -582,11 +583,11 @@
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
-  Theme -
+  Tema -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Pisces
   </a>

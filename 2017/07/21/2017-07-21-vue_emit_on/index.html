@@ -1,0 +1,761 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript,vue," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="Vue数据传递2.0中官方文档，API文档-组件 数据父-子数据prop:使用prop传递数据，单向数据流，.sync 双向绑定[语法糖:foo=&amp;quot;&amp;quot; @update:foo=&amp;quot;val =&amp;gt; bar = val&amp;quot;].v-model::value=&amp;quot;something&amp;quot;  v-on:input=&amp;quot;something = ar">
+<meta name="keywords" content="JavaScript,vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue数据传递问题">
+<meta property="og:url" content="http://lanria990.github.io/2017/07/21/2017-07-21-vue_emit_on/index.html">
+<meta property="og:site_name" content="楠持的小铺">
+<meta property="og:description" content="Vue数据传递2.0中官方文档，API文档-组件 数据父-子数据prop:使用prop传递数据，单向数据流，.sync 双向绑定[语法糖:foo=&amp;quot;&amp;quot; @update:foo=&amp;quot;val =&amp;gt; bar = val&amp;quot;].v-model::value=&amp;quot;something&amp;quot;  v-on:input=&amp;quot;something = ar">
+<meta property="og:updated_time" content="2017-07-23T15:57:20.290Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vue数据传递问题">
+<meta name="twitter:description" content="Vue数据传递2.0中官方文档，API文档-组件 数据父-子数据prop:使用prop传递数据，单向数据流，.sync 双向绑定[语法糖:foo=&amp;quot;&amp;quot; @update:foo=&amp;quot;val =&amp;gt; bar = val&amp;quot;].v-model::value=&amp;quot;something&amp;quot;  v-on:input=&amp;quot;something = ar">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Penulis'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://lanria990.github.io/2017/07/21/2017-07-21-vue_emit_on/"/>
+
+
+
+
+
+  <title>Vue数据传递问题 | 楠持的小铺</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?28d4de16e8dc14e71a34c3866bbf506c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">楠持的小铺</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">做人不卖萌跟咸鱼有什么区别</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i>
+            
+            Beranda
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i>
+            
+            Arsip
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-demos">
+          <a href="https://lanria990.github.io/demos" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i>
+            
+            实验室
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i>
+            
+            Tentang
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2017/07/21/2017-07-21-vue_emit_on/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨建兰">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/8067515?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="楠持的小铺">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                Vue数据传递问题
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Diposting di</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-21T00:00:00+08:00">
+                2017-07-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Vue数据传递"><a href="#Vue数据传递" class="headerlink" title="Vue数据传递"></a>Vue数据传递</h2><p>2.0中官方文档，<a href="https://cn.vuejs.org/v2/guide/components.html" target="_blank" rel="external">API文档-组件</a></p>
+<h3 id="数据父-子"><a href="#数据父-子" class="headerlink" title="数据父-子"></a>数据父-子</h3><h4 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h4><h5 id="prop-使用prop传递数据，单向数据流，-sync-双向绑定-语法糖-foo-quot-quot-update-foo-quot-val-gt-bar-val-quot"><a href="#prop-使用prop传递数据，单向数据流，-sync-双向绑定-语法糖-foo-quot-quot-update-foo-quot-val-gt-bar-val-quot" class="headerlink" title="prop:使用prop传递数据，单向数据流，.sync 双向绑定[语法糖:foo=&quot;&quot; @update:foo=&quot;val =&gt; bar = val&quot;]."></a><code>prop</code>:使用prop传递数据，单向数据流，<code>.sync</code> 双向绑定[语法糖<code>:foo=&quot;&quot; @update:foo=&quot;val =&gt; bar = val&quot;</code>].</h5><h5 id="v-model-value-quot-something-quot-v-on-input-quot-something-arguments-0-quot"><a href="#v-model-value-quot-something-quot-v-on-input-quot-something-arguments-0-quot" class="headerlink" title="v-model::value=&quot;something&quot;  v-on:input=&quot;something = arguments[0]&quot;"></a><code>v-model</code>:<code>:value=&quot;something&quot;  v-on:input=&quot;something = arguments[0]&quot;</code></h5><h5 id="v-bind"><a href="#v-bind" class="headerlink" title="v-bind"></a><code>v-bind</code></h5><blockquote>
+<p><code>v-bind=&quot;$props&quot;</code> 会把object props中的数据绑定都绑定</p>
+</blockquote>
+<p>$props：对象，代表当前组件收到的 props。Vue 示例代理访问到这个 props 对象的属性们<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">child</span> <span class="attr">v-bind</span>=<span class="string">"$props"</span>&gt;</span><span class="tag">&lt;/<span class="name">child</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">child</span> <span class="attr">:showHit</span>=<span class="string">"showHit"</span> <span class="attr">:message</span>=<span class="string">"message"</span>&gt;</span><span class="tag">&lt;/<span class="name">child</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line"> <span class="attr">props</span>: &#123;</div><div class="line">      <span class="attr">showHit</span>: <span class="built_in">Boolean</span>,</div><div class="line">      <span class="attr">message</span>: <span class="built_in">Boolean</span></div><div class="line">    &#125;,</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>v-bind=&#39;Object&#39;</code>: 相当于<code>v-bind:ObjectKey=&quot;value&quot; ...</code> </p>
+<p><code>v-bind=&#39;value&#39;</code>: String</p>
+<a id="more"></a>
+<h4 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h4><h5 id="发送事件"><a href="#发送事件" class="headerlink" title="发送事件"></a>发送事件</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.$emit(<span class="string">'eventName'</span>，<span class="built_in">arguments</span>)</div></pre></td></tr></table></figure>
+<h5 id="接受事件"><a href="#接受事件" class="headerlink" title="接受事件"></a>接受事件</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.$on(<span class="string">'eventName'</span>，<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;)</div></pre></td></tr></table></figure>
+<h3 id="子-父数据传递"><a href="#子-父数据传递" class="headerlink" title="子-父数据传递"></a>子-父数据传递</h3><p>子-父只能用事件传递，注意父级接收事件只能用<code>v-on</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">child</span> <span class="attr">v-on:eventName</span>=<span class="string">"event"</span>&gt;</span><span class="tag">&lt;/<span class="name">child</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="非父子数据传递"><a href="#非父子数据传递" class="headerlink" title="非父子数据传递"></a>非父子数据传递</h3><p>使用eventBus事件传递数据</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> bus = <span class="keyword">new</span> Vue()</div><div class="line"></div><div class="line"><span class="comment">// 触发组件 A 中的事件</span></div><div class="line">bus.$emit(<span class="string">'id-selected'</span>, <span class="number">1</span>)</div><div class="line"></div><div class="line"><span class="comment">// 接收组件 A 中的事件</span></div><div class="line">bus.$on(<span class="string">'id-selected'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">id</span>)</span>&#123;&#125;)</div></pre></td></tr></table></figure>
+<h4 id="dispatch"><a href="#dispatch" class="headerlink" title="dispatch"></a>dispatch</h4><p>直接查找到父级进行通信</p>
+<blockquote>
+<p>摘自element-ui</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">dispatch(componentName, eventName, params) &#123;</div><div class="line">    <span class="keyword">var</span> parent = <span class="keyword">this</span>.$parent || <span class="keyword">this</span>.$root;</div><div class="line">    <span class="keyword">var</span> name = parent.$options.componentName;</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (parent &amp;&amp; (!name || name !== componentName)) &#123;</div><div class="line">    parent = parent.$parent;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (parent) &#123;</div><div class="line">        name = parent.$options.componentName;</div><div class="line">    &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (parent) &#123;</div><div class="line">    parent.$emit.apply(parent, [eventName].concat(params));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="broadcast"><a href="#broadcast" class="headerlink" title="broadcast"></a>broadcast</h4><p>广播 </p>
+<blockquote>
+<p>摘自element-ui </p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">broadcast</span>(<span class="params">componentName, eventName, params</span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.$children.forEach(<span class="function"><span class="params">child</span> =&gt;</span> &#123;</div><div class="line">    <span class="keyword">var</span> name = child.$options.componentName;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (name === componentName) &#123;</div><div class="line">      child.$emit.apply(child, [eventName].concat(params));</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      broadcast.apply(child, [componentName, eventName].concat([params]));</div><div class="line">    &#125;</div><div class="line">  &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">broadcast(componentName, eventName, params) &#123;</div><div class="line">    broadcast.call(<span class="keyword">this</span>, componentName, eventName, params);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/vue/" rel="tag"># vue</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/20/2017-07-20-=&===/" rel="next" title="==和===">
+                <i class="fa fa-chevron-left"></i> ==和===
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Daftar Isi
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Ikhtisar
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <a href="/">
+
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars3.githubusercontent.com/u/8067515?v=3&s=460"
+               alt="杨建兰" />
+              </a>
+
+          <p class="site-author-name" itemprop="name">杨建兰</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-name">posting</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+          
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue数据传递"><span class="nav-number">1.</span> <span class="nav-text">Vue数据传递</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据父-子"><span class="nav-number">1.1.</span> <span class="nav-text">数据父-子</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据"><span class="nav-number">1.1.1.</span> <span class="nav-text">数据</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#prop-使用prop传递数据，单向数据流，-sync-双向绑定-语法糖-foo-quot-quot-update-foo-quot-val-gt-bar-val-quot"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">prop:使用prop传递数据，单向数据流，.sync 双向绑定[语法糖:foo="" @update:foo="val => bar = val"].</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#v-model-value-quot-something-quot-v-on-input-quot-something-arguments-0-quot"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">v-model::value="something"  v-on:input="something = arguments[0]"</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#v-bind"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">v-bind</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件"><span class="nav-number">1.1.2.</span> <span class="nav-text">事件</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#发送事件"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">发送事件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#接受事件"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">接受事件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#子-父数据传递"><span class="nav-number">1.2.</span> <span class="nav-text">子-父数据传递</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非父子数据传递"><span class="nav-number">1.3.</span> <span class="nav-text">非父子数据传递</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#dispatch"><span class="nav-number">1.3.1.</span> <span class="nav-text">dispatch</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#broadcast"><span class="nav-number">1.3.2.</span> <span class="nav-text">broadcast</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">杨建兰</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Tema -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

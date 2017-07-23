@@ -112,7 +112,7 @@
     motion: true,
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: 'Penulis'
     },
     algolia: {
       applicationID: '',
@@ -210,7 +210,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i>
             
-            首页
+            Beranda
           </a>
         </li>
       
@@ -220,7 +220,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i>
             
-            归档
+            Arsip
           </a>
         </li>
       
@@ -230,7 +230,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i>
             
-            标签
+            Tags
           </a>
         </li>
       
@@ -250,7 +250,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i>
             
-            关于
+            Tentang
           </a>
         </li>
       
@@ -283,7 +283,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2016/10/17/2016-10-17-develop-tip/">
+    <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2016/10/17/2016-12-17-IndexDB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="杨建兰">
@@ -305,8 +305,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/17/2016-10-17-develop-tip/" itemprop="url">
-                  开发法则 笔记
+                <a class="post-title-link" href="/2016/10/17/2016-12-17-IndexDB/" itemprop="url">
+                  IndexedDB 库 渐进式 Web App 阅读笔记
                 </a>
               
             
@@ -320,9 +320,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Diposting di</span>
               
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2016-10-17T00:00:00+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-17T00:00:00+08:00">
                 2016-10-17
               </time>
             
@@ -359,9 +359,141 @@
       
         
           
-            <p><a href="http://www.jianshu.com/p/c1bcb7c5c29a" target="_blank" rel="external">开发法则</a></p>
-<h4 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h4><ul>
-<li>应该为那些可能存在不确定性的需求或者对外提供的服务来编写全面的测试案例,对非常确定的细节不做测试<br>-</li>
+            <h2 id="IndexedDB-库-渐进式-Web-App"><a href="#IndexedDB-库-渐进式-Web-App" class="headerlink" title="IndexedDB 库 渐进式 Web App"></a>IndexedDB 库 渐进式 Web App</h2><p><a href="https://github.com/sundway/awesome-pwa" target="_blank" rel="external">PWA 相关资料</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> dbVersion = <span class="number">1</span>;</div><div class="line"><span class="keyword">let</span> dbName = <span class="string">'test'</span>;</div><div class="line"><span class="keyword">let</span> idb = <span class="built_in">window</span>.indexedDB.open(dbName, dbVersion);</div><div class="line"></div><div class="line">idb.onerror = <span class="function">(<span class="params">evt</span>) =&gt;</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'failed created indexDB'</span>);</div><div class="line">&#125;</div><div class="line">idb.onupgradeneeded = <span class="function"><span class="keyword">function</span>(<span class="params">evt</span>) </span>&#123;</div><div class="line">    <span class="keyword">let</span> db = evt.target.result;</div><div class="line">    <span class="keyword">let</span> keypath = <span class="string">'test-unique'</span>;</div><div class="line">    <span class="keyword">let</span> store = db.createObjectStore(<span class="string">'customers'</span>, &#123;</div><div class="line">        keypath</div><div class="line">    &#125;)</div><div class="line">    store.createIndex(<span class="string">"name"</span>, <span class="string">"name"</span>, &#123;</div><div class="line">        <span class="attr">unique</span>: <span class="literal">false</span></div><div class="line">    &#125;);</div><div class="line">    store.createIndex(<span class="string">"email"</span>, <span class="string">"email"</span>, &#123;</div><div class="line">        <span class="attr">unique</span>: <span class="literal">true</span></div><div class="line">    &#125;);</div><div class="line"></div><div class="line"></div><div class="line">    <span class="keyword">let</span> transaction = db.transaction([<span class="string">"customers"</span>], <span class="string">"readwrite"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//删除idb</span></div><div class="line"></div><div class="line"><span class="keyword">let</span> delRequest = <span class="built_in">window</span>.indexedDB.deleteDatabase(dbName);</div><div class="line"></div><div class="line">delRequest.onerror = <span class="function"><span class="keyword">function</span>(<span class="params">evt</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Error delelting database'</span>)</div><div class="line">&#125;</div><div class="line">delRequest.onsuccess = <span class="function"><span class="keyword">function</span>(<span class="params">evt</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">`Delelted database successfully <span class="subst">$&#123;delRequest.result&#125;</span>`</span>);</div><div class="line">    <span class="built_in">console</span>.log(delRequest.result);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(delRequest.readyState) <span class="comment">//pending</span></div></pre></td></tr></table></figure>
+<h4 id="支持插件"><a href="#支持插件" class="headerlink" title="支持插件"></a>支持插件</h4><p><a href="https://www.npmjs.com/package/idb-keyval" target="_blank" rel="external">idb-keyval</a> :提供 Promise， key-value 支持<br><a href="http://dexie.org/" target="_blank" rel="external">dexie</a>: 提供Promises，复杂查询、辅助索引</p>
+<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><p><a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBIndex" target="_blank" rel="external">MDN IDBIndex</a><br><a href="http://www.tfan.org/using-indexeddb/" target="_blank" rel="external">使用 IndexedDB</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2016/10/17/2016-10-17-HTML 5.1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨建兰">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/8067515?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="楠持的小铺">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/10/17/2016-10-17-HTML 5.1/" itemprop="url">
+                  HTML 5.1 一些提案
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Diposting di</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-17T00:00:00+08:00">
+                2016-10-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="http://www.zcfy.cc/article/1313" target="_blank" rel="external">原文</a></p>
+<h4 id="HTML-5-1-一些提案"><a href="#HTML-5-1-一些提案" class="headerlink" title="HTML 5.1 一些提案"></a>HTML 5.1 一些提案</h4><ul>
+<li><code>&lt;main&gt;</code></li>
+<li><code>&lt;details&gt;</code></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture#Example_1_Using_the_media_attribute" target="_blank" rel="external"><code>&lt;picture&gt;</code></a>:</li>
+<li><code>&lt;input type=&quot;week&quot;/&gt;</code></li>
+<li><code>&lt;input type=&quot;month&quot;/&gt;</code></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu" target="_blank" rel="external"><code>&lt;menu&gt;</code></a>:菜单指令合集</li>
+</ul>
+<h4 id="HTML-5-2"><a href="#HTML-5-2" class="headerlink" title="HTML 5.2"></a>HTML 5.2</h4><ul>
+<li><a href="https://blog.whatwg.org/js-modules" target="_blank" rel="external"><code>&lt;script type=&quot;module&quot;&gt;</code></a></li>
+<li><code>&lt;meta name=&quot;theme-color&quot; content=&quot;#3c790a&quot;&gt;</code> 设置banner、Chrome网址栏、状态栏三栏背景颜色</li>
 </ul>
 
           
@@ -443,9 +575,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Diposting di</span>
               
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2016-10-17T00:00:00+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-17T00:00:00+08:00">
                 2016-10-17
               </time>
             
@@ -529,6 +661,129 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2016/10/17/2016-10-17-develop-tip/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨建兰">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/8067515?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="楠持的小铺">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/10/17/2016-10-17-develop-tip/" itemprop="url">
+                  开发法则 笔记
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Diposting di</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-17T00:00:00+08:00">
+                2016-10-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="http://www.jianshu.com/p/c1bcb7c5c29a" target="_blank" rel="external">开发法则</a></p>
+<h4 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h4><ul>
+<li>应该为那些可能存在不确定性的需求或者对外提供的服务来编写全面的测试案例,对非常确定的细节不做测试<br>-</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2016/09/17/2016-09-17-RESTful API/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -566,9 +821,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Diposting di</span>
               
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2016-09-17T00:00:00+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-09-17T00:00:00+08:00">
                 2016-09-17
               </time>
             
@@ -709,9 +964,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Diposting di</span>
               
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2016-09-17T00:00:00+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-09-17T00:00:00+08:00">
                 2016-09-17
               </time>
             
@@ -848,9 +1103,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Diposting di</span>
               
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2016-08-27T00:00:00+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-27T00:00:00+08:00">
                 2016-08-27
               </time>
             
@@ -899,7 +1154,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/08/27/2016-08-27-HTTP Alternative Services/#more" rel="contents">
-              阅读全文 &raquo;
+              Baca lebih &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -981,9 +1236,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Diposting di</span>
               
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2016-08-17T00:00:00+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-17T00:00:00+08:00">
                 2016-08-17
               </time>
             
@@ -1025,275 +1280,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2016/08/17/2016-08-17-ES6-Arguments&Parameters/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2016/08/16/2016-08-16-web-vr/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="杨建兰">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/8067515?v=3&s=460">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="楠持的小铺">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/16/2016-08-16-web-vr/" itemprop="url">
-                  WebVR
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2016-08-16T00:00:00+08:00">
-                2016-08-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><a href="https://aotu.io/notes/2016/08/24/2016-8-24-webvr/" target="_blank" rel="external">原文</a></p>
-<h4 id="HMD-种类"><a href="#HMD-种类" class="headerlink" title="HMD 种类"></a>HMD 种类</h4><ul>
-<li>滑配式</li>
-</ul>
-<p>这是目前最初级、价格最低的 HMD 设备。它与智能手机相连接，将 2D 显示变成 3D VR 显示。滑配式 HMD 设备强烈依赖于主机系统(智能手机)，后者是提供 VR 效果的必备部分。</p>
-<p>厂商：滑配式HMD设备包括谷歌 Carboard 和三星 Gear VR。</p>
-<ul>
-<li>分离式</li>
-</ul>
-<p>分离式 HMD 设备较滑配式 HMD 设备复杂，内置多种电子零部件。两者的主要不同是，分离式 HMD 设备拥有自己的显示屏，也可能配备自己的处理器(提供简单计算能力)。虽然分离式 HMD 设备不能独立于主机系统而工作，但却为VR市场创造了新的机会，因为主机系统已不再局限于智能手机，PC 和视频游戏机也能用于提供VR体验。总之，分离式 HMD 设备能提供高质量的 VR 体验。</p>
-<p>厂商：分离式 HMD 设备包括 Facebook Oculus Rift、HTC Vive 和 PlayStation VR。</p>
-<ul>
-<li>整合式</li>
-</ul>
-<p>整合式 HMD 设备拥有强大的计算能力和追踪系统。作为一款独立的计算设备，整合式 HMD 设备将配备一整套零部件，价格甚至高于普通 PC。</p>
-<p>厂商：微软 HoloLens</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/08/16/2016-08-16-web-vr/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2016/08/16/2016-08-16-HTTP2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="杨建兰">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/8067515?v=3&s=460">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="楠持的小铺">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/16/2016-08-16-HTTP2/" itemprop="url">
-                  HTTP2 常见问题集锦
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2016-08-16T00:00:00+08:00">
-                2016-08-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="HTTP1-x-实践中遇到的问题"><a href="#HTTP1-x-实践中遇到的问题" class="headerlink" title="HTTP1.x 实践中遇到的问题"></a>HTTP1.x 实践中遇到的问题</h4><ul>
-<li><p>对头阻塞，只能一个优先处理的Http请求</p>
-</li>
-<li><p>浏览器的并发请求，多个 TCP 连接，TCP 的流控机制导致发送窗口乘性递减，导致拥塞用，从而影响了资源的加载</p>
-</li>
-<li><p>大量请求，重复数据</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/08/16/2016-08-16-HTTP2/#more" rel="contents">
-              阅读全文 &raquo;
+              Baca lebih &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -1375,9 +1362,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Diposting di</span>
               
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2016-08-16T00:00:00+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-16T00:00:00+08:00">
                 2016-08-16
               </time>
             
@@ -1464,7 +1451,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2016/08/15/2016-08-15-node-log4js/">
+    <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2016/08/16/2016-08-16-web-vr/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="杨建兰">
@@ -1486,8 +1473,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/08/15/2016-08-15-node-log4js/" itemprop="url">
-                  Node.js 之 log4js
+                <a class="post-title-link" href="/2016/08/16/2016-08-16-web-vr/" itemprop="url">
+                  WebVR
                 </a>
               
             
@@ -1501,10 +1488,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Diposting di</span>
               
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2016-08-15T00:00:00+08:00">
-                2016-08-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-16T00:00:00+08:00">
+                2016-08-16
               </time>
             
 
@@ -1539,17 +1526,29 @@
 
       
         
-          
-            <p><a href="http://qianduan.guru/2016/08/21/nodejs-lesson-1-log4js/" target="_blank" rel="external">前端外刊评论-Node.js 之 log4js 完全讲解</a>,<a href="https://github.com/nomiddlename/log4js-node/wiki/Layouts" target="_blank" rel="external">log4jsAPI文档</a></p>
-<p>#### </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var log4js = require(&apos;log4js&apos;);</div><div class="line">var logger = log4js.getLogger();</div><div class="line">logger.debug(&apos;Time:&apos;,new Date);//[2016-08-29 11:42:28.761] [DEBUG] [default] - Time: 2016-08-29T03:42:28.761Z</div></pre></td></tr></table></figure>
-<h4 id="log4js权重"><a href="#log4js权重" class="headerlink" title="log4js权重"></a>log4js权重</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">// &#123;</div><div class="line">// 	ALL:new Level(Number.MIN_VALUE,&apos;ALL&apos;),</div><div class="line">// 	TRACE:new Level(5000,&apos;TRACE&apos;),</div><div class="line">//     DEBUG:new Level(10000,&apos;DEBUG&apos;),</div><div class="line">//     INFO:new Level(20000,&apos;INFO&apos;),</div><div class="line">//     WARN:new Level(30000,&apos;WARN&apos;),</div><div class="line">//     ERROR:new Level(40000,&apos;ERROR&apos;),</div><div class="line">//     FATAL:new Level(50000,&apos;FATAL&apos;),</div><div class="line">//     MARK:new Level(60000,&apos;MARK&apos;),</div><div class="line">//     OFF:new Level(70000,&apos;OFF&apos;)</div><div class="line">// &#125;</div></pre></td></tr></table></figure>
-<h4 id="category，使用不同的分类-可以用于区分日志来自哪个模块"><a href="#category，使用不同的分类-可以用于区分日志来自哪个模块" class="headerlink" title="category，使用不同的分类, 可以用于区分日志来自哪个模块"></a>category，使用不同的分类, 可以用于区分日志来自哪个模块</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var loggerType = log4js.getLogger(&apos;example&apos;);//&apos;set-catetory.js&apos;</div><div class="line">loggerType.debug(&apos;Time:&apos;,new Date);//[2016-08-29 11:42:28.765] [DEBUG] example - Time: 2016-08-29T03:42:28.765Z</div></pre></td></tr></table></figure>
-<h4 id="appender-默认控制台-可以用于不同的模块输出到不同的文件"><a href="#appender-默认控制台-可以用于不同的模块输出到不同的文件" class="headerlink" title="appender,默认控制台, 可以用于不同的模块输出到不同的文件"></a>appender,默认控制台, 可以用于不同的模块输出到不同的文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">log4js.configure(&#123;</div><div class="line">    appenders:[&#123;</div><div class="line">        type:&apos;file&apos;,</div><div class="line">        filename:&apos;default.log&apos;</div><div class="line">    &#125;]</div><div class="line">&#125;);</div><div class="line">var loggerAppender = log4js.getLogger(&apos;custom-appender&apos;);</div><div class="line">loggerAppender.debug(&apos;Time:&apos;,new Date);</div></pre></td></tr></table></figure>
-<h4 id="过滤级别和类别-level-category"><a href="#过滤级别和类别-level-category" class="headerlink" title="过滤级别和类别 level,category"></a>过滤级别和类别 level,category</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">log4js.configure(&#123;</div><div class="line">    appenders: [&#123;</div><div class="line">        type: &apos;logLevelFilter&apos;,</div><div class="line">        level: &apos;DEBUG&apos;,</div><div class="line">        category: &apos;category1&apos;,</div><div class="line">        appender: &#123;</div><div class="line">            type: &apos;file&apos;,</div><div class="line">            filename: &apos;category.debug.log&apos;</div><div class="line">        &#125;</div><div class="line">    &#125;,&#123;</div><div class="line">        type: &apos;logLevelFilter&apos;,</div><div class="line">        level: &apos;INFO&apos;,</div><div class="line">        category: &apos;category1&apos;,</div><div class="line">        appender: &#123;</div><div class="line">            type: &apos;file&apos;,</div><div class="line">            filename: &apos;category.info.log&apos;</div><div class="line">        &#125;</div><div class="line">    &#125;]</div><div class="line">&#125;)</div><div class="line"></div><div class="line"></div><div class="line">var logger1 = log4js.getLogger(&apos;category1&apos;);</div><div class="line">var logger2 = log4js.getLogger(&apos;category2&apos;);</div><div class="line">logger1.debug(&quot;Time:&quot;, new Date());//[2016-08-29 11:59:42.508] [DEBUG] category1 - Time: 2016-08-29T03:59:42.508Z</div><div class="line">logger1.trace(&quot;Time:&quot;, new Date());</div><div class="line">logger1.info(&quot;Time:&quot;, new Date());</div><div class="line">logger2.debug(&quot;Time:&quot;, new Date());</div></pre></td></tr></table></figure>
-<h4 id="layout"><a href="#layout" class="headerlink" title="layout"></a>layout</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * https://github.com/nomiddlename/log4js-node/wiki/Layouts</div><div class="line"> * messagePassThrough：仅仅输出日志的内容；</div><div class="line"> * basic：在日志的内容前面会加上时间、日志的级别和类别，通常日志的默认 layout；</div><div class="line"> * colored/coloured：在 basic 的基础上给日志加上颜色，appender Console 默认使用的就是这个 layout；</div><div class="line"> * pattern：这是一种特殊类型，可以通过它来定义任何你想要的格式。</div><div class="line"> */</div><div class="line"></div><div class="line"></div><div class="line">log4js.configure(&#123;</div><div class="line">    appenders: [&#123;</div><div class="line">        type: &apos;console&apos;,</div><div class="line">        layout:&#123;</div><div class="line">            type: &apos;pattern&apos;,</div><div class="line">            pattern: &apos;[%r] [%[%5.5p%]] - %m%n&apos;</div><div class="line">        &#125;</div><div class="line">    &#125;]</div><div class="line">&#125;);</div><div class="line">var loggerLayout = log4js.getLogger(&apos;layout-pattern&apos;);</div><div class="line">loggerLayout.debug(&quot;Time:&quot;, new Date());//[14:00:04] [DEBUG] - Time: 2016-08-29T06:00:04.900Z</div></pre></td></tr></table></figure>
-<h4 id="输出-Node-应用的-ACCESS-日志-access-log"><a href="#输出-Node-应用的-ACCESS-日志-access-log" class="headerlink" title="输出 Node 应用的 ACCESS 日志 access.log"></a>输出 Node 应用的 ACCESS 日志 access.log</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</div><div class="line">log4js.configure(&#123;</div><div class="line">    <span class="attr">appenders</span>: [&#123;</div><div class="line">        <span class="attr">type</span>: <span class="string">'DateFile'</span>,</div><div class="line">        <span class="attr">filename</span>: <span class="string">'access.log'</span>,</div><div class="line">        <span class="attr">pattern</span>: <span class="string">'-yyyy-MM-dd.log'</span>,</div><div class="line">        <span class="attr">alwaysIncludePattern</span>: <span class="literal">true</span>,</div><div class="line">        <span class="attr">category</span>: <span class="string">'access'</span></div><div class="line">    &#125;]</div><div class="line">&#125;);</div><div class="line"><span class="keyword">var</span> app = express();</div><div class="line">app.use(log4js.connectLogger(log4js.getLogger(<span class="string">'access'</span>), &#123; <span class="attr">level</span>: log4js.levels.INFO &#125;));</div><div class="line">app.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>) </span>&#123;</div><div class="line">    res.send(<span class="string">'前端外刊评论'</span>);</div><div class="line">&#125;);</div><div class="line">app.listen(<span class="number">5000</span>);</div></pre></td></tr></table></figure>
-          
+          <p><a href="https://aotu.io/notes/2016/08/24/2016-8-24-webvr/" target="_blank" rel="external">原文</a></p>
+<h4 id="HMD-种类"><a href="#HMD-种类" class="headerlink" title="HMD 种类"></a>HMD 种类</h4><ul>
+<li>滑配式</li>
+</ul>
+<p>这是目前最初级、价格最低的 HMD 设备。它与智能手机相连接，将 2D 显示变成 3D VR 显示。滑配式 HMD 设备强烈依赖于主机系统(智能手机)，后者是提供 VR 效果的必备部分。</p>
+<p>厂商：滑配式HMD设备包括谷歌 Carboard 和三星 Gear VR。</p>
+<ul>
+<li>分离式</li>
+</ul>
+<p>分离式 HMD 设备较滑配式 HMD 设备复杂，内置多种电子零部件。两者的主要不同是，分离式 HMD 设备拥有自己的显示屏，也可能配备自己的处理器(提供简单计算能力)。虽然分离式 HMD 设备不能独立于主机系统而工作，但却为VR市场创造了新的机会，因为主机系统已不再局限于智能手机，PC 和视频游戏机也能用于提供VR体验。总之，分离式 HMD 设备能提供高质量的 VR 体验。</p>
+<p>厂商：分离式 HMD 设备包括 Facebook Oculus Rift、HTC Vive 和 PlayStation VR。</p>
+<ul>
+<li>整合式</li>
+</ul>
+<p>整合式 HMD 设备拥有强大的计算能力和追踪系统。作为一款独立的计算设备，整合式 HMD 设备将配备一整套零部件，价格甚至高于普通 PC。</p>
+<p>厂商：微软 HoloLens</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/08/16/2016-08-16-web-vr/#more" rel="contents">
+              Baca lebih &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1634,8 +1633,8 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">46</span>
-                <span class="site-state-item-name">文章</span>
+                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-name">posting</span>
               </a>
             </div>
           
@@ -1648,7 +1647,7 @@
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
                 <span class="site-state-item-count">16</span>
-                <span class="site-state-item-name">标签</span>
+                <span class="site-state-item-name">tags</span>
               </a>
             </div>
           
@@ -1699,11 +1698,11 @@
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
-  Theme -
+  Tema -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Pisces
   </a>
