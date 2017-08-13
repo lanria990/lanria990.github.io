@@ -407,7 +407,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2016/10/17/2016-12-17-IndexDB/">
+    <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2016/10/17/2016-10-17-npm-scripts/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="杨建兰">
@@ -429,8 +429,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/17/2016-12-17-IndexDB/" itemprop="url">
-                  IndexedDB 库 渐进式 Web App 阅读笔记
+                <a class="post-title-link" href="/2016/10/17/2016-10-17-npm-scripts/" itemprop="url">
+                  npm scripts 阅读笔记
                 </a>
               
             
@@ -483,10 +483,10 @@
       
         
           
-            <h2 id="IndexedDB-库-渐进式-Web-App"><a href="#IndexedDB-库-渐进式-Web-App" class="headerlink" title="IndexedDB 库 渐进式 Web App"></a>IndexedDB 库 渐进式 Web App</h2><p><a href="https://github.com/sundway/awesome-pwa" target="_blank" rel="external">PWA 相关资料</a></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> dbVersion = <span class="number">1</span>;</div><div class="line"><span class="keyword">let</span> dbName = <span class="string">'test'</span>;</div><div class="line"><span class="keyword">let</span> idb = <span class="built_in">window</span>.indexedDB.open(dbName, dbVersion);</div><div class="line"></div><div class="line">idb.onerror = <span class="function">(<span class="params">evt</span>) =&gt;</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'failed created indexDB'</span>);</div><div class="line">&#125;</div><div class="line">idb.onupgradeneeded = <span class="function"><span class="keyword">function</span>(<span class="params">evt</span>) </span>&#123;</div><div class="line">    <span class="keyword">let</span> db = evt.target.result;</div><div class="line">    <span class="keyword">let</span> keypath = <span class="string">'test-unique'</span>;</div><div class="line">    <span class="keyword">let</span> store = db.createObjectStore(<span class="string">'customers'</span>, &#123;</div><div class="line">        keypath</div><div class="line">    &#125;)</div><div class="line">    store.createIndex(<span class="string">"name"</span>, <span class="string">"name"</span>, &#123;</div><div class="line">        <span class="attr">unique</span>: <span class="literal">false</span></div><div class="line">    &#125;);</div><div class="line">    store.createIndex(<span class="string">"email"</span>, <span class="string">"email"</span>, &#123;</div><div class="line">        <span class="attr">unique</span>: <span class="literal">true</span></div><div class="line">    &#125;);</div><div class="line"></div><div class="line"></div><div class="line">    <span class="keyword">let</span> transaction = db.transaction([<span class="string">"customers"</span>], <span class="string">"readwrite"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//删除idb</span></div><div class="line"></div><div class="line"><span class="keyword">let</span> delRequest = <span class="built_in">window</span>.indexedDB.deleteDatabase(dbName);</div><div class="line"></div><div class="line">delRequest.onerror = <span class="function"><span class="keyword">function</span>(<span class="params">evt</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Error delelting database'</span>)</div><div class="line">&#125;</div><div class="line">delRequest.onsuccess = <span class="function"><span class="keyword">function</span>(<span class="params">evt</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">`Delelted database successfully <span class="subst">$&#123;delRequest.result&#125;</span>`</span>);</div><div class="line">    <span class="built_in">console</span>.log(delRequest.result);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(delRequest.readyState) <span class="comment">//pending</span></div></pre></td></tr></table></figure>
-<h4 id="支持插件"><a href="#支持插件" class="headerlink" title="支持插件"></a>支持插件</h4><p><a href="https://www.npmjs.com/package/idb-keyval" target="_blank" rel="external">idb-keyval</a> :提供 Promise， key-value 支持<br><a href="http://dexie.org/" target="_blank" rel="external">dexie</a>: 提供Promises，复杂查询、辅助索引</p>
-<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><p><a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBIndex" target="_blank" rel="external">MDN IDBIndex</a><br><a href="http://www.tfan.org/using-indexeddb/" target="_blank" rel="external">使用 IndexedDB</a></p>
+            <p><a href="http://www.ruanyifeng.com/blog/2016/10/npm_scripts.html" target="_blank" rel="external">npm scripts 使用指南–阮一峰</a></p>
+<h5 id="scripts-是package-json中的属性"><a href="#scripts-是package-json中的属性" class="headerlink" title="scripts 是package.json中的属性"></a>scripts 是package.json中的属性</h5><h5 id="原理：自动创建shell脚本运行，运行环境path是node-module目录"><a href="#原理：自动创建shell脚本运行，运行环境path是node-module目录" class="headerlink" title="原理：自动创建shell脚本运行，运行环境path是node_module目录"></a>原理：自动创建shell脚本运行，运行环境path是node_module目录</h5><h5 id="通配符：-所有文件-所有文件夹-，需要转义-eg-’test’-’mocha-test-js’"><a href="#通配符：-所有文件-所有文件夹-，需要转义-eg-’test’-’mocha-test-js’" class="headerlink" title="通配符：[所有文件],**[所有文件夹]，需要转义.eg `’test’:’mocha test/\.js’`."></a>通配符：<em>[所有文件],**[所有文件夹]，需要转义.eg `’test’:’mocha test/\</em>.js’`.</h5><h5 id="传参：使用–-eg-quot-lint-checkstyle-quot-quot-npm-run-lint-reporter-checkstyle-gt-checkstyle-xml-quot"><a href="#传参：使用–-eg-quot-lint-checkstyle-quot-quot-npm-run-lint-reporter-checkstyle-gt-checkstyle-xml-quot" class="headerlink" title="传参：使用– eg &quot;lint:checkstyle&quot;: &quot;npm run lint -- --reporter checkstyle &gt; checkstyle.xml&quot;"></a>传参：使用– eg <code>&quot;lint:checkstyle&quot;: &quot;npm run lint -- --reporter checkstyle &gt; checkstyle.xml&quot;</code></h5><h5 id="执行多个任务：并发-npm-run-script1-js-amp-npm-run-script2-js-顺序执行-npm-run-script1-js-amp-amp-npm-run-script2-js"><a href="#执行多个任务：并发-npm-run-script1-js-amp-npm-run-script2-js-顺序执行-npm-run-script1-js-amp-amp-npm-run-script2-js" class="headerlink" title="执行多个任务：并发[npm run script1.js &amp; npm run script2.js],顺序执行[npm run script1.js &amp;&amp; npm run script2.js]"></a>执行多个任务：并发[<code>npm run script1.js &amp; npm run script2.js</code>],顺序执行[<code>npm run script1.js &amp;&amp; npm run script2.js</code>]</h5><h5 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">"start"</span>: <span class="string">"node server.js"</span>，</div><div class="line"><span class="string">"install"</span>: <span class="string">"node-gyp rebuild"</span></div></pre></td></tr></table></figure>
+<h5 id="内部变量-npm-package-package-json中的属性-egnpm-package-name"><a href="#内部变量-npm-package-package-json中的属性-egnpm-package-name" class="headerlink" title="内部变量 npm_package_${package.json中的属性},egnpm_package_name"></a>内部变量 <code>npm_package_${package.json中的属性}</code>,eg<code>npm_package_name</code></h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="string">"repository"</span>: &#123;</div><div class="line">   <span class="string">"type"</span>: <span class="string">"git"</span>,</div><div class="line">   <span class="string">"url"</span>: <span class="string">"xxx"</span></div><div class="line"> &#125;,</div><div class="line"> <span class="attr">scripts</span>: &#123;</div><div class="line">   <span class="string">"view"</span>: <span class="string">"echo $npm_package_repository_type"</span></div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<h4 id="常用的"><a href="#常用的" class="headerlink" title="常用的"></a>常用的</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 删除目录</span></div><div class="line"><span class="string">"clean"</span>: <span class="string">"rimraf dist/*"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 本地搭建一个 HTTP 服务</span></div><div class="line"><span class="string">"serve"</span>: <span class="string">"http-server -p 9090 dist/"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 打开浏览器</span></div><div class="line"><span class="string">"open:dev"</span>: <span class="string">"opener http://localhost:9090"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 实时刷新</span></div><div class="line"> <span class="string">"livereload"</span>: <span class="string">"live-reload --port 9091 dist/"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 构建 HTML 文件</span></div><div class="line"><span class="string">"build:html"</span>: <span class="string">"jade index.jade &gt; dist/index.html"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 只要 CSS 文件有变动，就重新执行构建</span></div><div class="line"><span class="string">"watch:css"</span>: <span class="string">"watch 'npm run build:css' assets/styles/"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 只要 HTML 文件有变动，就重新执行构建</span></div><div class="line"><span class="string">"watch:html"</span>: <span class="string">"watch 'npm run build:html' assets/html"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 部署到 Amazon S3</span></div><div class="line"><span class="string">"deploy:prod"</span>: <span class="string">"s3-cli sync ./dist/ s3://example-com/prod-site/"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 构建 favicon</span></div><div class="line"><span class="string">"build:favicon"</span>: <span class="string">"node scripts/favicon.js"</span>,</div></pre></td></tr></table></figure>
 
           
         
@@ -662,6 +662,129 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2016/10/17/2016-12-17-IndexDB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨建兰">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/8067515?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="楠持的小铺">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/10/17/2016-12-17-IndexDB/" itemprop="url">
+                  IndexedDB 库 渐进式 Web App 阅读笔记
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2016-10-17T00:00:00+08:00">
+                2016-10-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="IndexedDB-库-渐进式-Web-App"><a href="#IndexedDB-库-渐进式-Web-App" class="headerlink" title="IndexedDB 库 渐进式 Web App"></a>IndexedDB 库 渐进式 Web App</h2><p><a href="https://github.com/sundway/awesome-pwa" target="_blank" rel="external">PWA 相关资料</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> dbVersion = <span class="number">1</span>;</div><div class="line"><span class="keyword">let</span> dbName = <span class="string">'test'</span>;</div><div class="line"><span class="keyword">let</span> idb = <span class="built_in">window</span>.indexedDB.open(dbName, dbVersion);</div><div class="line"></div><div class="line">idb.onerror = <span class="function">(<span class="params">evt</span>) =&gt;</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'failed created indexDB'</span>);</div><div class="line">&#125;</div><div class="line">idb.onupgradeneeded = <span class="function"><span class="keyword">function</span>(<span class="params">evt</span>) </span>&#123;</div><div class="line">    <span class="keyword">let</span> db = evt.target.result;</div><div class="line">    <span class="keyword">let</span> keypath = <span class="string">'test-unique'</span>;</div><div class="line">    <span class="keyword">let</span> store = db.createObjectStore(<span class="string">'customers'</span>, &#123;</div><div class="line">        keypath</div><div class="line">    &#125;)</div><div class="line">    store.createIndex(<span class="string">"name"</span>, <span class="string">"name"</span>, &#123;</div><div class="line">        <span class="attr">unique</span>: <span class="literal">false</span></div><div class="line">    &#125;);</div><div class="line">    store.createIndex(<span class="string">"email"</span>, <span class="string">"email"</span>, &#123;</div><div class="line">        <span class="attr">unique</span>: <span class="literal">true</span></div><div class="line">    &#125;);</div><div class="line"></div><div class="line"></div><div class="line">    <span class="keyword">let</span> transaction = db.transaction([<span class="string">"customers"</span>], <span class="string">"readwrite"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//删除idb</span></div><div class="line"></div><div class="line"><span class="keyword">let</span> delRequest = <span class="built_in">window</span>.indexedDB.deleteDatabase(dbName);</div><div class="line"></div><div class="line">delRequest.onerror = <span class="function"><span class="keyword">function</span>(<span class="params">evt</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Error delelting database'</span>)</div><div class="line">&#125;</div><div class="line">delRequest.onsuccess = <span class="function"><span class="keyword">function</span>(<span class="params">evt</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">`Delelted database successfully <span class="subst">$&#123;delRequest.result&#125;</span>`</span>);</div><div class="line">    <span class="built_in">console</span>.log(delRequest.result);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(delRequest.readyState) <span class="comment">//pending</span></div></pre></td></tr></table></figure>
+<h4 id="支持插件"><a href="#支持插件" class="headerlink" title="支持插件"></a>支持插件</h4><p><a href="https://www.npmjs.com/package/idb-keyval" target="_blank" rel="external">idb-keyval</a> :提供 Promise， key-value 支持<br><a href="http://dexie.org/" target="_blank" rel="external">dexie</a>: 提供Promises，复杂查询、辅助索引</p>
+<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><p><a href="https://developer.mozilla.org/en-US/docs/Web/API/IDBIndex" target="_blank" rel="external">MDN IDBIndex</a><br><a href="http://www.tfan.org/using-indexeddb/" target="_blank" rel="external">使用 IndexedDB</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2016/10/17/2016-10-17-develop-tip/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -742,129 +865,6 @@
 <h4 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h4><ul>
 <li>应该为那些可能存在不确定性的需求或者对外提供的服务来编写全面的测试案例,对非常确定的细节不做测试<br>-</li>
 </ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2016/10/17/2016-10-17-npm-scripts/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="杨建兰">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/8067515?v=3&s=460">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="楠持的小铺">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/17/2016-10-17-npm-scripts/" itemprop="url">
-                  npm scripts 阅读笔记
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2016-10-17T00:00:00+08:00">
-                2016-10-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="http://www.ruanyifeng.com/blog/2016/10/npm_scripts.html" target="_blank" rel="external">npm scripts 使用指南–阮一峰</a></p>
-<h5 id="scripts-是package-json中的属性"><a href="#scripts-是package-json中的属性" class="headerlink" title="scripts 是package.json中的属性"></a>scripts 是package.json中的属性</h5><h5 id="原理：自动创建shell脚本运行，运行环境path是node-module目录"><a href="#原理：自动创建shell脚本运行，运行环境path是node-module目录" class="headerlink" title="原理：自动创建shell脚本运行，运行环境path是node_module目录"></a>原理：自动创建shell脚本运行，运行环境path是node_module目录</h5><h5 id="通配符：-所有文件-所有文件夹-，需要转义-eg-’test’-’mocha-test-js’"><a href="#通配符：-所有文件-所有文件夹-，需要转义-eg-’test’-’mocha-test-js’" class="headerlink" title="通配符：[所有文件],**[所有文件夹]，需要转义.eg `’test’:’mocha test/\.js’`."></a>通配符：<em>[所有文件],**[所有文件夹]，需要转义.eg `’test’:’mocha test/\</em>.js’`.</h5><h5 id="传参：使用–-eg-quot-lint-checkstyle-quot-quot-npm-run-lint-reporter-checkstyle-gt-checkstyle-xml-quot"><a href="#传参：使用–-eg-quot-lint-checkstyle-quot-quot-npm-run-lint-reporter-checkstyle-gt-checkstyle-xml-quot" class="headerlink" title="传参：使用– eg &quot;lint:checkstyle&quot;: &quot;npm run lint -- --reporter checkstyle &gt; checkstyle.xml&quot;"></a>传参：使用– eg <code>&quot;lint:checkstyle&quot;: &quot;npm run lint -- --reporter checkstyle &gt; checkstyle.xml&quot;</code></h5><h5 id="执行多个任务：并发-npm-run-script1-js-amp-npm-run-script2-js-顺序执行-npm-run-script1-js-amp-amp-npm-run-script2-js"><a href="#执行多个任务：并发-npm-run-script1-js-amp-npm-run-script2-js-顺序执行-npm-run-script1-js-amp-amp-npm-run-script2-js" class="headerlink" title="执行多个任务：并发[npm run script1.js &amp; npm run script2.js],顺序执行[npm run script1.js &amp;&amp; npm run script2.js]"></a>执行多个任务：并发[<code>npm run script1.js &amp; npm run script2.js</code>],顺序执行[<code>npm run script1.js &amp;&amp; npm run script2.js</code>]</h5><h5 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">"start"</span>: <span class="string">"node server.js"</span>，</div><div class="line"><span class="string">"install"</span>: <span class="string">"node-gyp rebuild"</span></div></pre></td></tr></table></figure>
-<h5 id="内部变量-npm-package-package-json中的属性-egnpm-package-name"><a href="#内部变量-npm-package-package-json中的属性-egnpm-package-name" class="headerlink" title="内部变量 npm_package_${package.json中的属性},egnpm_package_name"></a>内部变量 <code>npm_package_${package.json中的属性}</code>,eg<code>npm_package_name</code></h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="string">"repository"</span>: &#123;</div><div class="line">   <span class="string">"type"</span>: <span class="string">"git"</span>,</div><div class="line">   <span class="string">"url"</span>: <span class="string">"xxx"</span></div><div class="line"> &#125;,</div><div class="line"> <span class="attr">scripts</span>: &#123;</div><div class="line">   <span class="string">"view"</span>: <span class="string">"echo $npm_package_repository_type"</span></div><div class="line"> &#125;</div></pre></td></tr></table></figure>
-<h4 id="常用的"><a href="#常用的" class="headerlink" title="常用的"></a>常用的</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 删除目录</span></div><div class="line"><span class="string">"clean"</span>: <span class="string">"rimraf dist/*"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 本地搭建一个 HTTP 服务</span></div><div class="line"><span class="string">"serve"</span>: <span class="string">"http-server -p 9090 dist/"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 打开浏览器</span></div><div class="line"><span class="string">"open:dev"</span>: <span class="string">"opener http://localhost:9090"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 实时刷新</span></div><div class="line"> <span class="string">"livereload"</span>: <span class="string">"live-reload --port 9091 dist/"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 构建 HTML 文件</span></div><div class="line"><span class="string">"build:html"</span>: <span class="string">"jade index.jade &gt; dist/index.html"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 只要 CSS 文件有变动，就重新执行构建</span></div><div class="line"><span class="string">"watch:css"</span>: <span class="string">"watch 'npm run build:css' assets/styles/"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 只要 HTML 文件有变动，就重新执行构建</span></div><div class="line"><span class="string">"watch:html"</span>: <span class="string">"watch 'npm run build:html' assets/html"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 部署到 Amazon S3</span></div><div class="line"><span class="string">"deploy:prod"</span>: <span class="string">"s3-cli sync ./dist/ s3://example-com/prod-site/"</span>,</div><div class="line"></div><div class="line"><span class="comment">// 构建 favicon</span></div><div class="line"><span class="string">"build:favicon"</span>: <span class="string">"node scripts/favicon.js"</span>,</div></pre></td></tr></table></figure>
 
           
         
@@ -1449,7 +1449,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2016/08/16/2016-08-16-web-animate/">
+    <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2016/08/16/2016-08-16-HTTP2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="杨建兰">
@@ -1471,8 +1471,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/08/16/2016-08-16-web-animate/" itemprop="url">
-                  web 动画
+                <a class="post-title-link" href="/2016/08/16/2016-08-16-HTTP2/" itemprop="url">
+                  HTTP2 常见问题集锦
                 </a>
               
             
@@ -1524,16 +1524,19 @@
 
       
         
-          
-            <p><a href="http://www.w3cplus.com/animation/animations.html" target="_blank" rel="external">原文地址</a></p>
-<h4 id="经验法则"><a href="#经验法则" class="headerlink" title="经验法则"></a>经验法则</h4><ul>
-<li><p>当您为 UI 元素采用较小的独立状态时，使用 CSS。 CSS 转换和动画非常适合于从侧面引入导航菜单，或显示工具提示。 最终，可以使用 JavaScript 来控制状态，但动画本身是采用 CSS.</p>
+          <h4 id="HTTP1-x-实践中遇到的问题"><a href="#HTTP1-x-实践中遇到的问题" class="headerlink" title="HTTP1.x 实践中遇到的问题"></a>HTTP1.x 实践中遇到的问题</h4><ul>
+<li><p>对头阻塞，只能一个优先处理的Http请求</p>
 </li>
-<li><p>在需要对动画进行大量控制时，使用 JavaScript。 动态跟踪触摸位置的动画，或需要停止、暂停、减速或倒退的动画一般需要使用 JavaScript。 如果您已使用包括了动画功能的 jQuery 或 JavaScript 框架，则可能发现继续使用该方法来做动画在总体上更方便，而不是切换到 CSS</p>
+<li><p>浏览器的并发请求，多个 TCP 连接，TCP 的流控机制导致发送窗口乘性递减，导致拥塞用，从而影响了资源的加载</p>
 </li>
-</ul>
-<h4 id="transitionend"><a href="#transitionend" class="headerlink" title="transitionend"></a>transitionend</h4><h4 id="requestAnimationFrame"><a href="#requestAnimationFrame" class="headerlink" title="requestAnimationFrame"></a>requestAnimationFrame</h4><h4 id="will-change"><a href="#will-change" class="headerlink" title="will-change"></a>will-change</h4>
-          
+<li><p>大量请求，重复数据</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/08/16/2016-08-16-HTTP2/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

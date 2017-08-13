@@ -687,6 +687,133 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2017/07/14/2017-07-15-vue-observe-watcher/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨建兰">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/8067515?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="楠持的小铺">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/07/14/2017-07-15-vue-observe-watcher/" itemprop="url">
+                  设计模式之观察者[订阅发布模式]
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2017-07-14T00:00:00+08:00">
+                2017-07-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="设计模式之观察者、订阅发布模式"><a href="#设计模式之观察者、订阅发布模式" class="headerlink" title="设计模式之观察者、订阅发布模式"></a>设计模式之观察者、订阅发布模式</h2><p>观察者模式又被称为发布-订阅模式,当一个对象改变同时有需要改变其他对象，并且它不知道需要改变多少对象的同时使用该模式最为合适。代码解耦的工作，耦合的双方都依赖于抽象不依赖具体的。</p>
+<p>观察者应该包含3个方法，订阅，退订，发布/通知</p>
+<p>实现代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Observe</span></span>&#123;</div><div class="line">    <span class="keyword">constructor</span>()&#123;</div><div class="line">        <span class="keyword">this</span>.sub = []</div><div class="line">    &#125;</div><div class="line">    add(fn)&#123;</div><div class="line">        <span class="keyword">this</span>.sub.push(fn)</div><div class="line">    &#125;</div><div class="line">    del(fn)&#123;</div><div class="line">        <span class="keyword">this</span>.sub = <span class="keyword">this</span>.sub.filter(<span class="function"><span class="params">item</span>=&gt;</span>item!==fn)</div><div class="line">    &#125;</div><div class="line">    notify(argument,scope)&#123;</div><div class="line">        scope = scope || <span class="built_in">window</span></div><div class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>,len=<span class="keyword">this</span>.sub.length;i&lt;len;i++)&#123;</div><div class="line">            <span class="keyword">this</span>.sub[i].call(scope,argument)</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/14/2017-07-15-vue-observe-watcher/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2017/07/14/2017-07-14-defineProperty/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -817,7 +944,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2017/07/14/2017-07-15-vue-observe-watcher/">
+    <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2017/07/09/2017-07-09-vue-question-list/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="杨建兰">
@@ -839,8 +966,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/07/14/2017-07-15-vue-observe-watcher/" itemprop="url">
-                  设计模式之观察者[订阅发布模式]
+                <a class="post-title-link" href="/2017/07/09/2017-07-09-vue-question-list/" itemprop="url">
+                  vue 使用过程中遇到的问题
                 </a>
               
             
@@ -856,8 +983,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2017-07-14T00:00:00+08:00">
-                2017-07-14
+              <time title="发表于" itemprop="dateCreated datePublished" datetime="2017-07-09T00:00:00+08:00">
+                2017-07-09
               </time>
             
 
@@ -892,13 +1019,19 @@
 
       
         
-          <h2 id="设计模式之观察者、订阅发布模式"><a href="#设计模式之观察者、订阅发布模式" class="headerlink" title="设计模式之观察者、订阅发布模式"></a>设计模式之观察者、订阅发布模式</h2><p>观察者模式又被称为发布-订阅模式,当一个对象改变同时有需要改变其他对象，并且它不知道需要改变多少对象的同时使用该模式最为合适。代码解耦的工作，耦合的双方都依赖于抽象不依赖具体的。</p>
-<p>观察者应该包含3个方法，订阅，退订，发布/通知</p>
-<p>实现代码</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Observe</span></span>&#123;</div><div class="line">    <span class="keyword">constructor</span>()&#123;</div><div class="line">        <span class="keyword">this</span>.sub = []</div><div class="line">    &#125;</div><div class="line">    add(fn)&#123;</div><div class="line">        <span class="keyword">this</span>.sub.push(fn)</div><div class="line">    &#125;</div><div class="line">    del(fn)&#123;</div><div class="line">        <span class="keyword">this</span>.sub = <span class="keyword">this</span>.sub.filter(<span class="function"><span class="params">item</span>=&gt;</span>item!==fn)</div><div class="line">    &#125;</div><div class="line">    notify(argument,scope)&#123;</div><div class="line">        scope = scope || <span class="built_in">window</span></div><div class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>,len=<span class="keyword">this</span>.sub.length;i&lt;len;i++)&#123;</div><div class="line">            <span class="keyword">this</span>.sub[i].call(scope,argument)</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+          <h2 id="vue-使用过程中遇到的问题-待整理"><a href="#vue-使用过程中遇到的问题-待整理" class="headerlink" title="vue 使用过程中遇到的问题[待整理]"></a>vue 使用过程中遇到的问题[待整理]</h2><h3 id="observe-data-数据不会随props数据象变化"><a href="#observe-data-数据不会随props数据象变化" class="headerlink" title="observe data 数据不会随props数据象变化"></a>observe data 数据不会随props数据象变化</h3><p>Vue中props的数据不允许修改，故而采用新变量赋值的方式存储。但会引发一个问题props的数据已经更改，data这得未改</p>
+<ul>
+<li><p>使用Computed</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">props</span>:[<span class="string">'data1'</span>]</div><div class="line">  computed:&#123;</div><div class="line">    test()&#123;</div><div class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.data1</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>data + watch</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">props</span>:[<span class="string">'data1'</span>]</div><div class="line">  data()&#123;</div><div class="line">    <span class="keyword">return</span>&#123;</div><div class="line">      <span class="attr">test</span>:<span class="keyword">this</span>.data1</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  watch:&#123;</div><div class="line">    data1()&#123;</div><div class="line">      <span class="keyword">this</span>.test = <span class="keyword">this</span>.data1</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="动态增加state数据，获取state数据"><a href="#动态增加state数据，获取state数据" class="headerlink" title="动态增加state数据，获取state数据"></a>动态增加state数据，获取state数据</h3><p>在生命中周期渲染中可以发现只有在<code>created</code>状态之前声明的状态才能有双向绑定监听的效果。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">data</span>:&#123;</div><div class="line">    <span class="attr">list</span>:<span class="literal">null</span> <span class="comment">//标记</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">methods</span>:&#123;</div><div class="line">    modifyState(state)&#123;</div><div class="line">      <span class="keyword">this</span>.list = <span class="built_in">Object</span>.assign(&#123;&#125;, state)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/07/14/2017-07-15-vue-observe-watcher/#more" rel="contents">
+            <a class="btn" href="/2017/07/09/2017-07-09-vue-question-list/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1024,130 +1157,6 @@
 <p><img src="/images/2017-07-9-谈判力【费希尔】.png" alt="脑图"></p>
 
           
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lanria990.github.io/2017/07/09/2017-07-09-vue-question-list/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="杨建兰">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/8067515?v=3&s=460">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="楠持的小铺">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/07/09/2017-07-09-vue-question-list/" itemprop="url">
-                  vue 使用过程中遇到的问题
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="发表于" itemprop="dateCreated datePublished" datetime="2017-07-09T00:00:00+08:00">
-                2017-07-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="vue-使用过程中遇到的问题-待整理"><a href="#vue-使用过程中遇到的问题-待整理" class="headerlink" title="vue 使用过程中遇到的问题[待整理]"></a>vue 使用过程中遇到的问题[待整理]</h2><h4 id="动态增加state数据，获取state数据"><a href="#动态增加state数据，获取state数据" class="headerlink" title="动态增加state数据，获取state数据"></a>动态增加state数据，获取state数据</h4><h4 id="observe-data-数据不会随props数据象变化"><a href="#observe-data-数据不会随props数据象变化" class="headerlink" title="observe data 数据不会随props数据象变化"></a>observe data 数据不会随props数据象变化</h4>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/09/2017-07-09-vue-question-list/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
